@@ -4,6 +4,9 @@ void main(List<String> args) {
   runApp(MyApp());
 }
 
+const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
+const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -16,11 +19,11 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          toolbarHeight: 120,
+          toolbarHeight: 100,
           elevation: 0,
           backgroundColor: Colors.white,
           title: Padding(
-            padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
+            padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
                       child: Text("Hello!", 
-                      style: TextStyle(color: Colors.black, 
+                      style: TextStyle(color: warnaUngu, 
                       fontSize: 20,
                       fontFamily: "Montserrat", 
                       fontWeight: FontWeight.w700)),
@@ -65,7 +68,7 @@ class MyApp extends StatelessWidget {
             children: [
               const Padding(
                 padding: EdgeInsets.only(bottom: 20, top: 10),
-                child: Text("Main Article", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
+                child: Text("Main Article", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
               ),
               SizedBox(height: 160,
               child: ListView(
@@ -95,13 +98,12 @@ class MyApp extends StatelessWidget {
                       color: Colors.yellow,
                     ),
                   ),
-                  
                 ],
               ),
             ),
               const Padding(
                 padding: EdgeInsets.only(bottom: 10, top: 20),
-                child: Text("Daily Insight", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
+                child: Text("Daily Insight", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
               ),
               Flexible(child: 
               ListView(
@@ -138,7 +140,7 @@ class MyApp extends StatelessWidget {
             ],),
         ),
         bottomNavigationBar: BottomNavigationBar(
-          backgroundColor: Colors.purple,
+          backgroundColor: warnaUngu,
           
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
@@ -154,8 +156,8 @@ class MyApp extends StatelessWidget {
               label: 'Profile',
             ),
           ],
-          selectedItemColor: Colors.orange,
-          unselectedItemColor: Colors.grey
+          selectedItemColor: warnaOren,
+          unselectedItemColor: Colors.white
         ),
       )
     );
