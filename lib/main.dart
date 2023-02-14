@@ -159,7 +159,9 @@ class MyApp extends StatelessWidget {
                                               )
                                             ),
                                         ),
-                                        Text()
+                                        Text(
+
+                                        ),
                                         
                                       ],
                                     ),
@@ -213,7 +215,7 @@ class MyApp extends StatelessWidget {
           ],
           selectedItemColor: warnaOren,
           unselectedItemColor: Colors.white
-        ), on
+        ),
       )
     );
   }
