@@ -99,6 +99,7 @@ class HomePage extends StatelessWidget {
           color: Colors.white,
           activeColor: Colors.white,
           tabBorderRadius: 30,
+          haptic: true,
           tabBackgroundColor: warnaOren,
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
           onTabChange: (index) {
