@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
-          toolbarHeight: 100,
+          toolbarHeight: 95,
           elevation: 0,
           backgroundColor: Colors.white,
           title: Padding(
@@ -32,10 +32,10 @@ class MyApp extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                      padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                       child: Text("Hello!", 
                       style: TextStyle(color: warnaUngu, 
-                      fontSize: 20,
+                      fontSize: 19,
                       fontFamily: "Montserrat", 
                       fontWeight: FontWeight.w700)),
                     ),
@@ -56,8 +56,6 @@ class MyApp extends StatelessWidget {
               ],
             ),
           )
-
-          
           ),
         body: 
         Padding(
@@ -65,7 +63,11 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Padding(
+              Flexible(child: 
+              ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    const Padding(
                 padding: EdgeInsets.only(bottom: 20, top: 10),
                 child: Text("Main Article", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
               ),
@@ -80,28 +82,90 @@ class MyApp extends StatelessWidget {
                 ],
               ),
             ),
-              const Padding(
-                padding: EdgeInsets.only(bottom: 10, top: 20),
-                child: Text("Daily Insight", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
-              ),
-              Flexible(child: 
-              ListView(
-                  scrollDirection: Axis.vertical,
-                  children: [
+                const Padding(
+                  padding: EdgeInsets.only(bottom: 10, top: 20),
+                  child: Text("Daily Insight", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
+                ),
                     Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
+                      padding: const EdgeInsets.only(bottom: 20, top: 5),
                       child: Container(
                         width: 480,
-                        height: 120,
-                        color: Colors.green,
+                        height: 100,
+                        color: Colors.transparent,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Container(
-                              child: const Image(image: NetworkImage("https://picsum.photos/280/130"), 
-                              width: 100, 
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: const Image(image: NetworkImage("https://picsum.photos/90/100"), 
+                              width: 90, 
                               height: 100, 
                               fit: BoxFit.cover,
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 0,bottom: 1),
+                                    child: Container(
+                                      width: 250,
+                                      child: const Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                                        maxLines: 2,
+                                        overflow: TextOverflow.ellipsis, 
+                                        style: TextStyle(color: warnaUngu, 
+                                        fontSize: 14, 
+                                        fontWeight: FontWeight.w700, 
+                                        height: 1.5,
+                                        fontFamily: "Montserrat")
+                                        ),
+                                    ),
+                                  ),
+                                  Container(
+                                    width: 240,
+                                    child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis
+                                    ,style: TextStyle(color: warnaUngu,
+                                    height: 1.5,
+                                    fontSize: 9,
+                                    fontWeight: FontWeight.w300,
+                                    fontFamily: "Montserrat"),
+                                    ),
+                                  
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 6),
+                                    child: Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: 50,
+                                          height: 12.5,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(3),
+                                            color: warnaUngu
+                                          ),
+                                          child: const Center(
+                                            child: Text("Science", 
+                                            style: TextStyle(
+                                              color: Colors.white, 
+                                              fontSize: 9, 
+                                              fontWeight: FontWeight.w700, 
+                                              fontFamily: "Montserrat"),
+                                              )
+                                            ),
+                                        ),
+                                        Text()
+                                        
+                                      ],
+                                    ),
+                                  )
+                                ],
+                            
                               ),
                             )
                           ],
@@ -139,8 +203,8 @@ class MyApp extends StatelessWidget {
               label: 'Home',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.search),
-              label: 'Search' ,
+              icon: Icon(Icons.favorite_rounded),
+              label: 'Like' ,
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person_rounded),
@@ -149,7 +213,7 @@ class MyApp extends StatelessWidget {
           ],
           selectedItemColor: warnaOren,
           unselectedItemColor: Colors.white
-        ),
+        ), on
       )
     );
   }
@@ -163,7 +227,7 @@ class MainArticle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.only(right: 35),
       child: Container(
         width: 280,
         height: 160,
@@ -193,7 +257,7 @@ class MainArticle extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• 5 Min", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                  child: Text("• By Hana", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
