@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
 const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
@@ -91,25 +92,26 @@ class HomePage extends StatelessWidget {
               
             ],),
         ),
-        bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: GNav(
+          iconSize: 20,
+          gap: 4, 
           backgroundColor: warnaUngu,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_rounded),
-              label: 'Like' ,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_rounded),
-              label: 'Profile',
-            ),
-          ],
-          selectedItemColor: warnaOren,
-          unselectedItemColor: Colors.white
-        ),
+          color: Colors.white,
+          activeColor: Colors.white,
+          tabBackgroundColor: warnaOren,
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
+          onTabChange: (index) {
+            print(index);
+          },
+          
+          tabs: const [
+          
+          GButton(icon: Icons.home, text: "Home"),
+          GButton(icon: Icons.favorite, text: "Like"),
+          GButton(icon: Icons.add_box_rounded, text: "Write"),
+          GButton(icon: Icons.explore, text: "Explore"),
+          GButton(icon: Icons.person, text: "Profile"),
+        ])
     );
   }
 }
