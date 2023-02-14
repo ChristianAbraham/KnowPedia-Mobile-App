@@ -128,7 +128,7 @@ class MyApp extends StatelessWidget {
                       child: Container(
                         width: 480,
                         height: 160,
-                        color: Colors.purple,
+                        color: Colors.yellow,
                       ),
                     ),
                   ],
@@ -138,17 +138,19 @@ class MyApp extends StatelessWidget {
             ],),
         ),
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Colors.purple,
+          
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: Icon(Icons.home_rounded),
               label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.search),
-              label: 'Search',
+              label: 'Search' ,
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: Icon(Icons.person_rounded),
               label: 'Profile',
             ),
           ],
