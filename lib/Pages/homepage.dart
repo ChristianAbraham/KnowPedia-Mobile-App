@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
           ),
         body: 
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -93,7 +93,7 @@ class HomePage extends StatelessWidget {
             ],),
         ),
         bottomNavigationBar: GNav(
-          iconSize: 20,
+          iconSize: 15,
           gap: 4, 
           backgroundColor: warnaUngu,
           color: Colors.white,
@@ -151,12 +151,12 @@ class DailyInsight extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 0,bottom: 1),
                     child: Container(
-                      width: 250,
+                      width: 220,
                       child: const Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis, 
                         style: TextStyle(color: warnaUngu, 
-                        fontSize: 14, 
+                        fontSize: 13, 
                         fontWeight: FontWeight.w700, 
                         height: 1.5,
                         fontFamily: "Montserrat")
@@ -164,7 +164,7 @@ class DailyInsight extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 240,
+                    width: 220,
                     child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis
