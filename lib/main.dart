@@ -50,7 +50,7 @@ class MyApp extends StatelessWidget {
                   padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                   child: CircleAvatar(
                     radius: 30,
-                    backgroundImage: NetworkImage(""),
+                    backgroundImage: NetworkImage("https://picsum.photos/130/130"),
                   ),
                 ),
               ],
@@ -63,41 +63,20 @@ class MyApp extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
           child: Column(
-            
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Padding(
                 padding: EdgeInsets.only(bottom: 20, top: 10),
                 child: Text("Main Article", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
               ),
-              SizedBox(height: 160,
+              SizedBox(height: 180,
               child: ListView(
                 scrollDirection: Axis.horizontal,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Container(
-                      width: 280,
-                      height: 160,
-                      color: Colors.red,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Container(
-                      width: 280,
-                      height: 160,
-                      color: Colors.orange,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Container(
-                      width: 280,
-                      height: 160,
-                      color: Colors.yellow,
-                    ),
-                  ),
+                children: const [
+                  MainArticle(),
+                  MainArticle(),
+                  MainArticle(),
+                  MainArticle(),
                 ],
               ),
             ),
@@ -113,15 +92,27 @@ class MyApp extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Container(
                         width: 480,
-                        height: 160,
+                        height: 120,
                         color: Colors.green,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              child: const Image(image: NetworkImage("https://picsum.photos/280/130"), 
+                              width: 100, 
+                              height: 100, 
+                              fit: BoxFit.cover,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Container(
                         width: 480,
-                        height: 160,
+                        height: 120,
                         color: Colors.blue,
                       ),
                     ),
@@ -129,7 +120,7 @@ class MyApp extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 20),
                       child: Container(
                         width: 480,
-                        height: 160,
+                        height: 120,
                         color: Colors.yellow,
                       ),
                     ),
@@ -160,6 +151,60 @@ class MyApp extends StatelessWidget {
           unselectedItemColor: Colors.white
         ),
       )
+    );
+  }
+}
+
+class MainArticle extends StatelessWidget {
+  const MainArticle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 20),
+      child: Container(
+        width: 280,
+        height: 160,
+        color: Colors.transparent,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: const Image(image: NetworkImage("https://picsum.photos/280/130"), 
+                width: 280, 
+                height: 130, 
+                fit: BoxFit.cover,
+             ),
+            ),  
+            const Padding(
+              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+              child: Text("Lorem Ipsum Judul Waw", style: TextStyle(color: warnaUngu, fontSize: 14, fontWeight: FontWeight.w700, fontFamily: "Montserrat")),
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: const [
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                  child: Text("• Science", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                  child: Text("• 5 Min", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                  child: Text("• 2.5k View", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                ),
+              ],
+            ),
+
+          ],
+        ),
+      ),
     );
   }
 }
