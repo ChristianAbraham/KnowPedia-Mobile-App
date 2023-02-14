@@ -86,110 +86,12 @@ class MyApp extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10, top: 20),
                   child: Text("Daily Insight", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
                 ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20, top: 5),
-                      child: Container(
-                        width: 480,
-                        height: 100,
-                        color: Colors.transparent,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: const Image(image: NetworkImage("https://picsum.photos/90/100"), 
-                              width: 90, 
-                              height: 100, 
-                              fit: BoxFit.cover,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 0,bottom: 1),
-                                    child: Container(
-                                      width: 250,
-                                      child: const Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                                        maxLines: 2,
-                                        overflow: TextOverflow.ellipsis, 
-                                        style: TextStyle(color: warnaUngu, 
-                                        fontSize: 14, 
-                                        fontWeight: FontWeight.w700, 
-                                        height: 1.5,
-                                        fontFamily: "Montserrat")
-                                        ),
-                                    ),
-                                  ),
-                                  Container(
-                                    width: 240,
-                                    child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis
-                                    ,style: TextStyle(color: warnaUngu,
-                                    height: 1.5,
-                                    fontSize: 9,
-                                    fontWeight: FontWeight.w300,
-                                    fontFamily: "Montserrat"),
-                                    ),
-                                  
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 6),
-                                    child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          width: 50,
-                                          height: 12.5,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(3),
-                                            color: warnaUngu
-                                          ),
-                                          child: const Center(
-                                            child: Text("Science", 
-                                            style: TextStyle(
-                                              color: Colors.white, 
-                                              fontSize: 9, 
-                                              fontWeight: FontWeight.w700, 
-                                              fontFamily: "Montserrat"),
-                                              )
-                                            ),
-                                        ),
-                                        Text(
-
-                                        ),
-                                        
-                                      ],
-                                    ),
-                                  )
-                                ],
-                            
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Container(
-                        width: 480,
-                        height: 120,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(bottom: 20),
-                      child: Container(
-                        width: 480,
-                        height: 120,
-                        color: Colors.yellow,
-                      ),
-                    ),
+                    DailyInsight(),
+                    DailyInsight(),
+                    DailyInsight(),
+                    DailyInsight(),
+                    DailyInsight(),
+                    
                   ],
 
                 ))
@@ -217,6 +119,106 @@ class MyApp extends StatelessWidget {
           unselectedItemColor: Colors.white
         ),
       )
+    );
+  }
+}
+
+class DailyInsight extends StatelessWidget {
+  const DailyInsight({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 20, top: 5),
+      child: Container(
+        width: 480,
+        height: 100,
+        color: Colors.transparent,
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(15),
+              child: const Image(image: NetworkImage("https://picsum.photos/90/100"), 
+              width: 90, 
+              height: 100, 
+              fit: BoxFit.cover,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(top: 0,bottom: 1),
+                    child: Container(
+                      width: 250,
+                      child: const Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis, 
+                        style: TextStyle(color: warnaUngu, 
+                        fontSize: 14, 
+                        fontWeight: FontWeight.w700, 
+                        height: 1.5,
+                        fontFamily: "Montserrat")
+                        ),
+                    ),
+                  ),
+                  Container(
+                    width: 240,
+                    child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis
+                    ,style: TextStyle(color: warnaUngu,
+                    height: 1.5,
+                    fontSize: 9,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Montserrat"),
+                    ),
+                  
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: 50,
+                          height: 13,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(3),
+                            color: warnaUngu
+                          ),
+                          child: const Center(
+                            child: Text("Science", 
+                            style: TextStyle(
+                              color: Colors.white, 
+                              fontSize: 10, 
+                              fontWeight: FontWeight.w700, 
+                              fontFamily: "Montserrat"),
+                              )
+                            ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 5),
+                          child: Text("• By Hana", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")
+                          ),
+                        ),
+                        
+                      ],
+                    ),
+                  )
+                ],
+            
+              ),
+            )
+          ],
+        ),
+      ),
     );
   }
 }
