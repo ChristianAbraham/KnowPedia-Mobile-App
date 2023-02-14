@@ -80,11 +80,11 @@ class HomePage extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10, top: 20),
                   child: Text("Daily Insight", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
                 ),
-                    DailyInsight(),
-                    DailyInsight(),
-                    DailyInsight(),
-                    DailyInsight(),
-                    DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
                     
                   ],
 
@@ -98,10 +98,10 @@ class HomePage extends StatelessWidget {
           backgroundColor: warnaUngu,
           color: Colors.white,
           activeColor: Colors.white,
+          tabBorderRadius: 30,
           tabBackgroundColor: warnaOren,
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
           onTabChange: (index) {
-            print(index);
           },
           
           tabs: const [
