@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
+import 'package:knowpedia/Pages/favorite.dart';
+import 'package:knowpedia/Pages/profile.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
 const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
@@ -40,12 +42,22 @@ class HomePage extends StatelessWidget {
                     
                   ],
                 ),
-                const Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  child: CircleAvatar(
-                    radius: 30,
-                    backgroundImage: NetworkImage("https://picsum.photos/130/130"),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    shape: const CircleBorder(),
+                    elevation: 0,
                   ),
+                  child:const Padding(
+                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    child: CircleAvatar(
+                      radius: 30,
+                      backgroundImage: NetworkImage("https://picsum.photos/130/130"),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Profile()));
+                  },
                 ),
               ],
             ),
@@ -97,10 +109,10 @@ class HomePage extends StatelessWidget {
           gap: 4, 
           backgroundColor: warnaUngu,
           color: Colors.white,
-          activeColor: Colors.white,
+          activeColor: warnaOren,
           tabBorderRadius: 30,
           haptic: true,
-          tabBackgroundColor: warnaOren,
+          tabBackgroundColor: Colors.transparent,
           padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
           onTabChange: (index) {
           },
@@ -148,11 +160,11 @@ class DailyInsight extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(top: 0,bottom: 1),
-                    child: Container(
-                      width: 220,
-                      child: const Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                  const Padding(
+                    padding: EdgeInsets.only(top: 0,bottom: 1),
+                    child: SizedBox(
+                      width: 250,
+                      child: Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis, 
                         style: TextStyle(color: warnaUngu, 
@@ -164,7 +176,7 @@ class DailyInsight extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 220,
+                    width: 250,
                     child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis
