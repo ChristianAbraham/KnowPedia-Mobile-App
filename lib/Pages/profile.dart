@@ -11,6 +11,7 @@ class Profile extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+        iconTheme: const IconThemeData(color: warnaUngu, size: 30),
         centerTitle: true,
         toolbarHeight: 80,
         title: const Text('Profile', 

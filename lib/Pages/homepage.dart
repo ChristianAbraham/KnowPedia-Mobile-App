@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:knowpedia/Pages/favorite.dart';
+import 'package:knowpedia/Pages/article.dart';
 import 'package:knowpedia/Pages/profile.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
@@ -137,93 +137,98 @@ class DailyInsight extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 20, top: 5),
-      child: Container(
-        width: 480,
-        height: 100,
-        color: Colors.transparent,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: const Image(image: NetworkImage("https://picsum.photos/90/100"), 
-              width: 90, 
-              height: 100, 
-              fit: BoxFit.cover,
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const Article()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 20, top: 5),
+        child: Container(
+          width: 480,
+          height: 100,
+          color: Colors.transparent,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: const Image(image: NetworkImage("https://picsum.photos/90/100"), 
+                width: 90, 
+                height: 100, 
+                fit: BoxFit.cover,
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 0,bottom: 1),
-                    child: SizedBox(
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Padding(
+                      padding: EdgeInsets.only(top: 0,bottom: 1),
+                      child: SizedBox(
+                        width: 250,
+                        child: Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis, 
+                          style: TextStyle(color: warnaUngu, 
+                          fontSize: 13, 
+                          fontWeight: FontWeight.w700, 
+                          height: 1.5,
+                          fontFamily: "Montserrat")
+                          ),
+                      ),
+                    ),
+                    Container(
                       width: 250,
-                      child: Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis, 
-                        style: TextStyle(color: warnaUngu, 
-                        fontSize: 13, 
-                        fontWeight: FontWeight.w700, 
-                        height: 1.5,
-                        fontFamily: "Montserrat")
-                        ),
+                      child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis
+                      ,style: TextStyle(color: warnaUngu,
+                      height: 1.5,
+                      fontSize: 9,
+                      fontWeight: FontWeight.w300,
+                      fontFamily: "Montserrat"),
+                      ),
+                    
                     ),
-                  ),
-                  Container(
-                    width: 250,
-                    child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis
-                    ,style: TextStyle(color: warnaUngu,
-                    height: 1.5,
-                    fontSize: 9,
-                    fontWeight: FontWeight.w300,
-                    fontFamily: "Montserrat"),
-                    ),
-                  
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 6),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 50,
-                          height: 13,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(3),
-                            color: warnaUngu
-                          ),
-                          child: const Center(
-                            child: Text("Science", 
-                            style: TextStyle(
-                              color: Colors.white, 
-                              fontSize: 10, 
-                              fontWeight: FontWeight.w700, 
-                              fontFamily: "Montserrat"),
-                              )
+                    Padding(
+                      padding: const EdgeInsets.only(top: 6),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 50,
+                            height: 13,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(3),
+                              color: warnaUngu
                             ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.only(left: 5),
-                          child: Text("• By Hana", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")
+                            child: const Center(
+                              child: Text("Science", 
+                              style: TextStyle(
+                                color: Colors.white, 
+                                fontSize: 10, 
+                                fontWeight: FontWeight.w700, 
+                                fontFamily: "Montserrat"),
+                                )
+                              ),
                           ),
-                        ),
-                        
-                      ],
-                    ),
-                  )
-                ],
-            
-              ),
-            )
-          ],
+                          const Padding(
+                            padding: EdgeInsets.only(left: 5),
+                            child: Text("• By Hana", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")
+                            ),
+                          ),
+                          
+                        ],
+                      ),
+                    )
+                  ],
+              
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
@@ -237,47 +242,52 @@ class MainArticle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 35),
-      child: Container(
-        width: 280,
-        height: 160,
-        color: Colors.transparent,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(15),
-              child: const Image(image: NetworkImage("https://picsum.photos/280/130"), 
-                width: 280, 
-                height: 130, 
-                fit: BoxFit.cover,
-             ),
-            ),  
-            const Padding(
-              padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-              child: Text("Lorem Ipsum Judul Waw", style: TextStyle(color: warnaUngu, fontSize: 14, fontWeight: FontWeight.w700, fontFamily: "Montserrat")),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: const [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• Science", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• By Hana", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• 2.5k View", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
-                ),
-              ],
-            ),
-
-          ],
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => const Article()));
+      },
+      child: Padding(
+        padding: const EdgeInsets.only(right: 35),
+        child: Container(
+          width: 280,
+          height: 160,
+          color: Colors.transparent,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: const Image(image: NetworkImage("https://picsum.photos/280/130"), 
+                  width: 280, 
+                  height: 130, 
+                  fit: BoxFit.cover,
+               ),
+              ),  
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
+                child: Text("Lorem Ipsum Judul Waw", style: TextStyle(color: warnaUngu, fontSize: 14, fontWeight: FontWeight.w700, fontFamily: "Montserrat")),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const [
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                    child: Text("• Science", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                    child: Text("• By Hana", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                    child: Text("• 2.5k View", style: TextStyle(color: warnaOren, fontSize: 10, fontWeight: FontWeight.w500, fontFamily: "Montserrat")),
+                  ),
+                ],
+              ),
+    
+            ],
+          ),
         ),
       ),
     );
