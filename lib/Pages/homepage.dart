@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
 const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
@@ -52,7 +53,7 @@ class HomePage extends StatelessWidget {
           ),
         body: 
         Padding(
-          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -79,11 +80,11 @@ class HomePage extends StatelessWidget {
                   padding: EdgeInsets.only(bottom: 10, top: 20),
                   child: Text("Daily Insight", style: TextStyle(color: warnaUngu,fontSize: 20, fontWeight: FontWeight.bold, fontFamily: "Montserrat")),
                 ),
-                    DailyInsight(),
-                    DailyInsight(),
-                    DailyInsight(),
-                    DailyInsight(),
-                    DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
+                    const DailyInsight(),
                     
                   ],
 
@@ -91,25 +92,27 @@ class HomePage extends StatelessWidget {
               
             ],),
         ),
-        bottomNavigationBar: BottomNavigationBar(
+        bottomNavigationBar: GNav(
+          iconSize: 15,
+          gap: 4, 
           backgroundColor: warnaUngu,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_rounded),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_rounded),
-              label: 'Like' ,
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_rounded),
-              label: 'Profile',
-            ),
-          ],
-          selectedItemColor: warnaOren,
-          unselectedItemColor: Colors.white
-        ),
+          color: Colors.white,
+          activeColor: Colors.white,
+          tabBorderRadius: 30,
+          haptic: true,
+          tabBackgroundColor: warnaOren,
+          padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 25),
+          onTabChange: (index) {
+          },
+          
+          tabs: const [
+          
+          GButton(icon: Icons.home, text: "Home"),
+          GButton(icon: Icons.favorite, text: "Like"),
+          GButton(icon: Icons.add_box_rounded, text: "Write"),
+          GButton(icon: Icons.explore, text: "Explore"),
+          GButton(icon: Icons.person, text: "Profile"),
+        ])
     );
   }
 }
@@ -148,12 +151,12 @@ class DailyInsight extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 0,bottom: 1),
                     child: Container(
-                      width: 250,
+                      width: 220,
                       child: const Text("Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis, 
                         style: TextStyle(color: warnaUngu, 
-                        fontSize: 14, 
+                        fontSize: 13, 
                         fontWeight: FontWeight.w700, 
                         height: 1.5,
                         fontFamily: "Montserrat")
@@ -161,7 +164,7 @@ class DailyInsight extends StatelessWidget {
                     ),
                   ),
                   Container(
-                    width: 240,
+                    width: 220,
                     child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/homepage.dart';
+import 'package:knowpedia/Pages/favorite.dart';
+import 'package:knowpedia/Pages/homepage.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
