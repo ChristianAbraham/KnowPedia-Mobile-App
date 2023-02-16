@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/favorite.dart';
-import 'package:knowpedia/Pages/homepage.dart';
+import 'package:knowpedia/navbar.dart';
 
 void main(List<String> args) {
   runApp(MyApp());
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.purple,
       ),
-      home: HomePage()
+      home: Navbar()
     );
   }
 }
