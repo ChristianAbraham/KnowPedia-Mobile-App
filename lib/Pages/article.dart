@@ -10,7 +10,7 @@ class Article extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.white, size: 30),
+        iconTheme: const IconThemeData(color: Colors.white, size: 30),
         
       ),
       body: Column(children: [

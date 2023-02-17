@@ -33,7 +33,6 @@ class Profile extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   const CircleAvatar(
-                    
                     radius: 50,
                     backgroundImage: NetworkImage('https://picsum.photos/100/100'),
                   ),

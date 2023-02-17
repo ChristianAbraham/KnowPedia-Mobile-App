@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
                       fontFamily: "Montserrat", 
                       fontWeight: FontWeight.w700)),
                     ),
-                    Text("Chris", style: TextStyle(color: Colors.orange, 
+                    Text("Christian", style: TextStyle(color: Colors.orange, 
                       fontSize: 32,
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w700)),
@@ -156,9 +156,9 @@ class DailyInsight extends StatelessWidget {
                           ),
                       ),
                     ),
-                    Container(
+                    const SizedBox(
                       width: 250,
-                      child: const Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                      child: Text("Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis
                       ,style: TextStyle(color: warnaUngu,
