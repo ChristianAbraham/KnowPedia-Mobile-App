@@ -227,7 +227,7 @@ class MainArticle extends StatelessWidget {
         padding: const EdgeInsets.only(right: 35),
         child: Container(
           width: 280,
-          height: 160,
+          height: 200,
           color: Colors.transparent,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
