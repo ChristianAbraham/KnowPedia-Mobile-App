@@ -24,42 +24,49 @@ class Explore extends StatelessWidget {
         elevation: 0,
         backgroundColor: Colors.white,
       ),
-      body: Column(
-        children: [
-          Flexible(
-            child: Container(
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+        child: Column(
+          children: [
+            Flexible(
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
-                  Container(width: 306, height: 149, color: warnaOren),
-                  Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Container(
-                          width: 148,
-                          height: 170,
-                          color: warnaUngu,
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: Container(width: 306, height: 149, color: warnaOren),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(0.0),
+                    child: Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 15),
+                          child: Container(
+                            width: 172.5,
+                            height: 170,
+                            color: warnaUngu,
+                          ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
+                        Column(
                           children: [
                             Container(
-                              width: 148,
-                              height: 78,
+                              width: 172.5,
+                              height: 77.5,
                               color: warnaOren,
                             ),
-                            Container(
-                              width: 148,
-                              height: 78,
-                              color: warnaUngu,
+                            Padding(
+                              padding: const EdgeInsets.only(top: 15),
+                              child: Container(
+                                width: 172.5,
+                                height: 77.5,
+                                color: warnaUngu,
+                              ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   MainArticle(),
                   MainArticle(),
@@ -68,9 +75,9 @@ class Explore extends StatelessWidget {
                   MainArticle(),
                 ],
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
