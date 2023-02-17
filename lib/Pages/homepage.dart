@@ -243,7 +243,16 @@ class MainArticle extends StatelessWidget {
               ),  
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                child: Text("Lorem Ipsum Judul Waw", style: TextStyle(color: warnaUngu, fontSize: 14, fontWeight: FontWeight.w700, fontFamily: "Montserrat")),
+                child: SizedBox(
+                  width: 280,
+                  child: Text("Lorem Ipsum Judul Waw", 
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: warnaUngu, 
+                  fontSize: 14, 
+                  fontWeight: FontWeight.w700, 
+                  fontFamily: "Montserrat")),
+                ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
