@@ -36,37 +36,34 @@ class Explore extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 15),
                     child: Container(width: 306, height: 149, color: warnaOren),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(0.0),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: Container(
-                            width: 172.5,
-                            height: 170,
-                            color: warnaUngu,
-                          ),
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Container(
+                          width: 172.5,
+                          height: 170,
+                          color: warnaUngu,
                         ),
-                        Column(
-                          children: [
-                            Container(
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 172.5,
+                            height: 77.5,
+                            color: warnaOren,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15),
+                            child: Container(
                               width: 172.5,
                               height: 77.5,
-                              color: warnaOren,
+                              color: warnaUngu,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15),
-                              child: Container(
-                                width: 172.5,
-                                height: 77.5,
-                                color: warnaUngu,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                   MainArticle(),
                   MainArticle(),
