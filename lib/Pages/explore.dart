@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Pages/homepage.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
@@ -14,7 +15,7 @@ class Explore extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: warnaUngu, size: 30),
         centerTitle: true,
-        toolbarHeight: 80,
+        toolbarHeight: 75,
         title: const Text('Explore',
             style: TextStyle(
                 color: warnaUngu,
@@ -25,9 +26,10 @@ class Explore extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Column(
           children: [
+            searchBar(),
             Flexible(
               child: ListView(
                 scrollDirection: Axis.vertical,
@@ -65,11 +67,11 @@ class Explore extends StatelessWidget {
                       ),
                     ],
                   ),
-                  MainArticle(),
-                  MainArticle(),
-                  MainArticle(),
-                  MainArticle(),
-                  MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
                 ],
               ),
             )
