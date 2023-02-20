@@ -41,19 +41,6 @@ class Explore extends StatelessWidget {
                       height: 100,
                     ),
                   ),
-<<<<<<< HEAD
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(right: 15),
-                          child: Container(
-                            width: 172.5,
-                            height: 170,
-                            color: warnaUngu,
-                          ),
-=======
                   Row(
                     children: [
                       Padding(
@@ -62,7 +49,6 @@ class Explore extends StatelessWidget {
                           width: 172.5,
                           height: 170,
                           color: warnaUngu,
->>>>>>> 6845357ad23a8a1d6949beaf3c30f5bc6c7a626d
                         ),
                       ),
                       Column(
@@ -84,30 +70,6 @@ class Explore extends StatelessWidget {
                       ),
                     ],
                   ),
-<<<<<<< HEAD
-                  Column(
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            height: 149,
-                            color: warnaOren,
-                          )
-                        ],
-                      ),
-                      Text(
-                        'Lorem',
-                        style: TextStyle(color:),
-                      )
-                    ],
-                  )
-=======
-                  const MainArticle(),
-                  const MainArticle(),
-                  const MainArticle(),
-                  const MainArticle(),
-                  const MainArticle(),
->>>>>>> 6845357ad23a8a1d6949beaf3c30f5bc6c7a626d
                 ],
               ),
             )
