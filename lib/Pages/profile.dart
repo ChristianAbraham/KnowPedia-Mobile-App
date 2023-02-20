@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/Pages/settings.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
 const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
@@ -21,6 +22,21 @@ class Profile extends StatelessWidget {
         fontSize: 25)),
         elevation: 0,
         backgroundColor: Colors.white,
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: IconButton(
+              onPressed: () {
+                Navigator.push(context, 
+                MaterialPageRoute(
+                            builder: (context) => const Setting()));
+              },
+              icon: const Icon(Icons.settings), 
+              color: warnaUngu,
+              iconSize: 20,
+            ),
+          )
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(15,10,15,0),
