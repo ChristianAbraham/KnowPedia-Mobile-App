@@ -73,7 +73,10 @@ class Explore extends StatelessWidget {
                     color: Colors.transparent,
                     child: Column(
                       children: const [
-                        Text("Lorem Ipsum", style: TextStyle(fontSize: 6),)
+                        Text(
+                          "Lorem Ipsum",
+                          style: TextStyle(fontSize: 6),
+                        )
                       ],
                     ),
                   ),
