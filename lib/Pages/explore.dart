@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Pages/homepage.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
@@ -14,7 +15,7 @@ class Explore extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: warnaUngu, size: 30),
         centerTitle: true,
-        toolbarHeight: 80,
+        toolbarHeight: 75,
         title: const Text('Explore',
             style: TextStyle(
                 color: warnaUngu,
@@ -25,9 +26,10 @@ class Explore extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Column(
           children: [
+            searchBar(),
             Flexible(
               child: ListView(
                 scrollDirection: Axis.vertical,
@@ -39,6 +41,7 @@ class Explore extends StatelessWidget {
                       height: 100,
                     ),
                   ),
+<<<<<<< HEAD
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15),
                     child: Row(
@@ -50,27 +53,38 @@ class Explore extends StatelessWidget {
                             height: 170,
                             color: warnaUngu,
                           ),
+=======
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(right: 15),
+                        child: Container(
+                          width: 172.5,
+                          height: 170,
+                          color: warnaUngu,
+>>>>>>> 6845357ad23a8a1d6949beaf3c30f5bc6c7a626d
                         ),
-                        Column(
-                          children: [
-                            Container(
+                      ),
+                      Column(
+                        children: [
+                          Container(
+                            width: 172.5,
+                            height: 77.5,
+                            color: warnaOren,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 15),
+                            child: Container(
                               width: 172.5,
                               height: 77.5,
-                              color: warnaOren,
+                              color: warnaUngu,
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15),
-                              child: Container(
-                                width: 172.5,
-                                height: 77.5,
-                                color: warnaUngu,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+<<<<<<< HEAD
                   Column(
                     children: [
                       Column(
@@ -87,6 +101,13 @@ class Explore extends StatelessWidget {
                       )
                     ],
                   )
+=======
+                  const MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
+                  const MainArticle(),
+>>>>>>> 6845357ad23a8a1d6949beaf3c30f5bc6c7a626d
                 ],
               ),
             )

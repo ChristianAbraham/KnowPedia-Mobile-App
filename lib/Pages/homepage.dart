@@ -47,13 +47,10 @@ class HomePage extends StatelessWidget {
                     shape: const CircleBorder(),
                     elevation: 0,
                   ),
-                  child: const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                    child: CircleAvatar(
-                      radius: 30,
-                      backgroundImage:
-                          NetworkImage("https://picsum.photos/130/130"),
-                    ),
+                  child: const CircleAvatar(
+                    radius: 30,
+                    backgroundImage:
+                        NetworkImage("https://picsum.photos/130/130"),
                   ),
                   onPressed: () {
                     Navigator.push(
@@ -66,15 +63,16 @@ class HomePage extends StatelessWidget {
             ),
           )),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Column(
+          
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Flexible(
                 child: ListView(
               scrollDirection: Axis.vertical,
               children: [
-                const Padding(
+                  const Padding(
                   padding: EdgeInsets.only(bottom: 20, top: 10),
                   child: Text("Main Article",
                       style: TextStyle(
@@ -104,6 +102,7 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Montserrat")),
                 ),
+                
                 const DailyInsight(),
                 const DailyInsight(),
                 const DailyInsight(),
@@ -154,7 +153,7 @@ class DailyInsight extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Padding(
+                     const Padding(
                       padding: EdgeInsets.only(top: 0, bottom: 1),
                       child: SizedBox(
                         width: 250,

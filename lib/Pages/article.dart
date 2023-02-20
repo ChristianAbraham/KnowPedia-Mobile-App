@@ -24,7 +24,7 @@ class Article extends StatelessWidget {
           )
         ),
         const Padding(
-          padding: EdgeInsets.all(15),
+          padding: EdgeInsets.all(10),
           child: Text("Ini Judul Lorem Ipsum Yang Panjang Ya Sapatau Menarik",
           style: TextStyle(fontFamily: 'Montserrat', 
           fontSize: 25, 

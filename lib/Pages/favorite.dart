@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Components/searchbar.dart';
 import 'homepage.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
@@ -13,7 +14,7 @@ class Favorite extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         centerTitle: true,
-        toolbarHeight: 80,
+        toolbarHeight: 75,
         title: const Text('Favorite', 
         style: TextStyle(color: warnaUngu,
         fontFamily: "Montserrat",
@@ -23,9 +24,10 @@ class Favorite extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 20, right: 20, top: 5),
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
         child: Column(
           children: [ 
+            searchBar(),
             Flexible(
               child: ListView.builder(
                 itemCount: 10,

@@ -28,7 +28,7 @@ class Profile extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.fromLTRB(0,0,0,20),
+              padding:  const EdgeInsets.fromLTRB(0,0,0,20),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
@@ -37,7 +37,7 @@ class Profile extends StatelessWidget {
                     backgroundImage: NetworkImage('https://picsum.photos/100/100'),
                   ),
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(20,0,0,5),
+                    padding:  const EdgeInsets.fromLTRB(20,0,0,5),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
