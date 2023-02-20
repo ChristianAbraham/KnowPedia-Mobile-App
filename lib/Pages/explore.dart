@@ -43,41 +43,103 @@ class Explore extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(right: 15),
                         child: Container(
-                          width: 173.8,
-                          height: 170,
+                          width: 170,
+                          height: 172,
                           color: warnaUngu,
+                          child: Image(
+                              image: NetworkImage(
+                                  "https://picsum.photos/405/400")),
                         ),
                       ),
                       Column(
                         children: [
                           Container(
-                            width: 173.8,
-                            height: 77.5,
+                            width: 177.3,
+                            height: 78,
                             color: warnaOren,
+                            child: ClipRRect(
+                              child: Image(
+                                  fit: BoxFit.cover,
+                                  image: NetworkImage(
+                                      "https://picsum.photos/280/220")),
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: Container(
-                              width: 173.8,
-                              height: 77.5,
+                              width: 177.3,
+                              height: 78,
                               color: warnaUngu,
+                              child: Image(
+                                  image: NetworkImage(
+                                      "https://picsum.photos/280/130")),
                             ),
                           ),
                         ],
                       ),
                     ],
                   ),
-                  Container(
-                    width: 306,
-                    height: 149,
-                    color: Colors.transparent,
-                    child: Column(
-                      children: const [
-                        Text(
-                          "Lorem Ipsum",
-                          style: TextStyle(fontSize: 6),
-                        )
-                      ],
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15, bottom: 15),
+                    child: Container(
+                      width: 306,
+                      height: 200,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            height: 149,
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(15),
+                              child: Image(
+                                  image: NetworkImage(
+                                      "https://picsum.photos/500/200")),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(top: 7),
+                            child: Text("Lorem Ipsum Judul Waw",
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    color: warnaUngu,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Montserrat")),
+                          ),
+                          Row(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                                child: Text("• Science",
+                                    style: TextStyle(
+                                        color: warnaOren,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: "Montserrat")),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                                child: Text("• By Hana",
+                                    style: TextStyle(
+                                        color: warnaOren,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: "Montserrat")),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                                child: Text("• 2.5k View",
+                                    style: TextStyle(
+                                        color: warnaOren,
+                                        fontSize: 10,
+                                        fontWeight: FontWeight.w500,
+                                        fontFamily: "Montserrat")),
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ],
