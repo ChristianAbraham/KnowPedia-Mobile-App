@@ -26,7 +26,7 @@ class Explore extends StatelessWidget {
         backgroundColor: Colors.white,
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+        padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
         child: Column(
           children: [
             searchBar(),
@@ -35,18 +35,15 @@ class Explore extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 15),
-                    child: Container(
-                      color: warnaOren,
-                      height: 100,
-                    ),
+                    padding: const EdgeInsets.only(bottom: 15),
+                    child: Container(width: 306, height: 149, color: warnaOren),
                   ),
                   Row(
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 15),
                         child: Container(
-                          width: 172.5,
+                          width: 173.8,
                           height: 170,
                           color: warnaUngu,
                         ),
@@ -54,14 +51,14 @@ class Explore extends StatelessWidget {
                       Column(
                         children: [
                           Container(
-                            width: 172.5,
+                            width: 173.8,
                             height: 77.5,
                             color: warnaOren,
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
                             child: Container(
-                              width: 172.5,
+                              width: 173.8,
                               height: 77.5,
                               color: warnaUngu,
                             ),
@@ -69,6 +66,19 @@ class Explore extends StatelessWidget {
                         ],
                       ),
                     ],
+                  ),
+                  Container(
+                    width: 306,
+                    height: 149,
+                    color: Colors.transparent,
+                    child: Column(
+                      children: const [
+                        Text(
+                          "Lorem Ipsum",
+                          style: TextStyle(fontSize: 6),
+                        )
+                      ],
+                    ),
                   ),
                 ],
               ),
@@ -79,5 +89,3 @@ class Explore extends StatelessWidget {
     );
   }
 }
-
-class ClassName {}
