@@ -33,11 +33,14 @@ class Explore extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
-                    child: Container(width: 306, height: 149, color: warnaOren),
+                    padding: EdgeInsets.only(bottom: 15),
+                    child: Container(
+                      color: warnaOren,
+                      height: 100,
+                    ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.only(bottom: 15),
                     child: Row(
                       children: [
                         Padding(
@@ -68,11 +71,22 @@ class Explore extends StatelessWidget {
                       ],
                     ),
                   ),
-                  MainArticle(),
-                  MainArticle(),
-                  MainArticle(),
-                  MainArticle(),
-                  MainArticle(),
+                  Column(
+                    children: [
+                      Column(
+                        children: [
+                          Container(
+                            height: 149,
+                            color: warnaOren,
+                          )
+                        ],
+                      ),
+                      Text(
+                        'Lorem',
+                        style: TextStyle(color:),
+                      )
+                    ],
+                  )
                 ],
               ),
             )
@@ -82,3 +96,5 @@ class Explore extends StatelessWidget {
     );
   }
 }
+
+class ClassName {}
