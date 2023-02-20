@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/navbar.dart';
 
 class Article extends StatelessWidget {
   const Article({super.key});
@@ -10,8 +11,6 @@ class Article extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.white, size: 30),
-        
       ),
       body: Column(children: [
         SizedBox(
