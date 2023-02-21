@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Pages/aboutUs.dart';
 
@@ -26,34 +24,74 @@ class Setting extends StatelessWidget {
         centerTitle: true,
       ),
       body: Column(children: [
-        ListTile(
-          leading: Icon(Icons.person, color: warnaUngu),
-          title: Text('Account', style: TextStyle(fontFamily: 'Montserrat', fontSize: 20, color: warnaUngu)),
-          trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
-          ),
-        ListTile(
-          leading: Icon(Icons.notifications, color: warnaUngu),
-          title: Text('Notifications', style: TextStyle(fontFamily: 'Montserrat', fontSize: 20, color: warnaUngu)),
-          trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
-          ),
-        ListTile(
-          leading: Icon(Icons.help, color: warnaUngu),
-          title: Text('Help', style: TextStyle(fontFamily: 'Montserrat', fontSize: 20, color: warnaUngu)),
-          trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
-          ),
-        ListTile(
-          leading: Icon(Icons.logout, color: warnaUngu),
-          title: Text('Log Out', style: TextStyle(fontFamily: 'Montserrat', fontSize: 20, color: warnaUngu)),
-          trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
-          ),
-        ListTile(
-          leading: Icon(Icons.info, color: warnaUngu),
-          title: Text('About Us', style: TextStyle(fontFamily: 'Montserrat', fontSize: 20, color: warnaUngu)),
-          trailing: InkWell(
+        InkWell(
+          child: const ListTile(
+            leading: Icon(Icons.person, color: warnaUngu),
+            title: Text('Account', style: TextStyle(fontFamily: 'Montserrat', fontSize: 18, color: warnaUngu)),
+            trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
+            ),
+          onTap: () {
+
+          }
+        ),
+        InkWell(
+          child: const ListTile(
+            leading: Icon(Icons.notifications, color: warnaUngu),
+            title: Text('Notifications', style: TextStyle(fontFamily: 'Montserrat', fontSize: 18, color: warnaUngu)),
+            trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
+            ),
+          onTap: () { 
+            
+          }
+        ),
+        InkWell(
+          child: ListTile(
+            leading: const Icon(Icons.help, color: warnaUngu),
+            title: const Text('Help', style: TextStyle(fontFamily: 'Montserrat', fontSize: 18, color: warnaUngu)),
+            trailing: const Icon(Icons.arrow_forward_ios, color: warnaUngu),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUs()));
+              
             },
-            child: Icon(Icons.arrow_forward_ios, color: warnaUngu)),
+            ),
+        ),
+        InkWell(
+          child: const ListTile(
+          leading: Icon(Icons.logout, color: warnaUngu),
+          title: Text('Log Out', style: TextStyle(fontFamily: 'Montserrat', fontSize: 18, color: warnaUngu)),
+          trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu)),     
+          onTap: () {
+            showDialog(context: context, builder: (context) {
+              return AlertDialog(
+              title: const Text('Log Out'),
+              content: const Text('Are you sure you want to log out?', 
+              style: TextStyle(fontFamily: 'Montserrat'),),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Cancel',style: TextStyle(fontFamily: 'Montserrat')),
+                ),
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text('Log Out', style: TextStyle(fontFamily: 'Montserrat')),
+                    ),
+                  ],
+                );
+               }
+              );
+            },
+          ),
+        InkWell(  
+          child: const ListTile(
+          leading: Icon(Icons.info, color: warnaUngu),
+          title: Text('About Us', style: TextStyle(fontFamily: 'Montserrat', fontSize: 18, color: warnaUngu)),
+          trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu)), 
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUs()));
+            },
           ),
         ]
       )
