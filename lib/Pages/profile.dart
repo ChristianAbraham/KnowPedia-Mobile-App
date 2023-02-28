@@ -167,7 +167,7 @@ class Profile extends StatelessWidget {
                 ],
               ),
             ),
-            const Text("Best Articles", 
+            const Text("Latest Articles", 
             style: TextStyle(
               fontFamily: "Montserrat", 
               fontWeight: FontWeight.bold,

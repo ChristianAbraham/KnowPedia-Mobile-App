@@ -62,6 +62,9 @@ class Setting extends StatelessWidget {
           onTap: () {
             showDialog(context: context, builder: (context) {
               return AlertDialog(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0),
+              ),
               title: const Text('Log Out'),
               content: const Text('Are you sure you want to log out?', 
               style: TextStyle(fontFamily: 'Montserrat'),),
