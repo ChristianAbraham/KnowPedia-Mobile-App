@@ -3,7 +3,7 @@ import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/main.dart';
 
 void main(List<String> args) {
-  runApp(LoginScreen());
+  runApp(const LoginScreen());
 }
 
 class LoginScreen extends StatelessWidget {
@@ -27,10 +27,10 @@ class LoginScreen extends StatelessWidget {
               Center(
                 child: Column(
                   children: [
-                    SizedBox(
-                      height: 500,
+                    const SizedBox(
+                      height: 475,
                     ),
-                    Container(
+                    SizedBox(
                       width: 325,
                       child: TextField(
                         textAlign: TextAlign.left,
@@ -39,10 +39,16 @@ class LoginScreen extends StatelessWidget {
                             filled: true,
                             enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(40),
-                                borderSide:
-                                    BorderSide(width: 1.5, color: warnaOren)),
+                                borderSide: const BorderSide(
+                                    width: 1.5, color: warnaOren)),
                             hintText: 'Chris@email.com',
-                            hintStyle: TextStyle(color: warnaOren)),
+                            hintStyle: const TextStyle(color: warnaOren),
+                            // ignore: prefer_const_constructors
+                            suffixIcon: Icon(
+                              Icons.person_2_rounded,
+                              color: warnaOren,
+                              size: 18,
+                            )),
                       ),
                     ),
                     Padding(
@@ -56,10 +62,37 @@ class LoginScreen extends StatelessWidget {
                               filled: true,
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(40),
-                                  borderSide:
-                                      BorderSide(width: 1.5, color: warnaUngu)),
+                                  borderSide: const BorderSide(
+                                      width: 1.5, color: warnaUngu)),
                               hintText: 'Password',
-                              hintStyle: TextStyle(color: warnaUngu)),
+                              hintStyle: const TextStyle(color: warnaUngu),
+                              // ignore: prefer_const_constructors
+                              suffixIcon: Icon(
+                                Icons.key_rounded,
+                                color: warnaUngu,
+                                size: 18,
+                              )),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 40),
+                      child: Container(
+                        alignment: Alignment.topRight,
+                        child: TextButton(
+                          onPressed: null,
+                          style: TextButton.styleFrom(
+                            disabledForegroundColor:
+                                warnaOren.withOpacity(0.50),
+                          ),
+                          child: Text(
+                            'Forgot Password ?',
+                            style: TextStyle(
+                              decoration: TextDecoration.underline,
+                              decorationColor: warnaOren.withOpacity(0.90),
+                              decorationThickness: 1,
+                            ),
+                          ),
                         ),
                       ),
                     )
