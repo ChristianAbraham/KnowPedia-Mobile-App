@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/navbar.dart';
 
 class Article extends StatelessWidget {
   const Article({super.key});
@@ -14,24 +13,25 @@ class Article extends StatelessWidget {
       ),
       body: Column(children: [
         SizedBox(
-          height: 180,
-          width: 480,
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(12),
-            child: Image.network("https://picsum.photos/280/130", 
-            fit: BoxFit.cover,)
-          )
-        ),
+            height: 180,
+            width: 480,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.network(
+                  "https://picsum.photos/280/130",
+                  fit: BoxFit.cover,
+                ))),
         const Padding(
           padding: EdgeInsets.all(10),
-          child: Text("Ini Judul Lorem Ipsum Yang Panjang Ya Sapatau Menarik",
-          style: TextStyle(fontFamily: 'Montserrat', 
-          fontSize: 25, 
-          fontWeight: FontWeight.w700,
-          height: 1.5),
+          child: Text(
+            "Ini Judul Lorem Ipsum Yang Panjang Ya Sapatau Menarik",
+            style: TextStyle(
+                fontFamily: 'Montserrat',
+                fontSize: 25,
+                fontWeight: FontWeight.w700,
+                height: 1.5),
           ),
         ),
-        
       ]),
     );
   }
