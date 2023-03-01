@@ -12,6 +12,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
+          automaticallyImplyLeading: false,
           toolbarHeight: 95,
           elevation: 0,
           backgroundColor: Colors.white,
@@ -65,14 +66,13 @@ class HomePage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
         child: Column(
-          
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Flexible(
                 child: ListView(
               scrollDirection: Axis.vertical,
               children: [
-                  const Padding(
+                const Padding(
                   padding: EdgeInsets.only(bottom: 20, top: 10),
                   child: Text("Main Article",
                       style: TextStyle(
@@ -102,7 +102,6 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Montserrat")),
                 ),
-                
                 const DailyInsight(),
                 const DailyInsight(),
                 const DailyInsight(),
@@ -153,7 +152,7 @@ class DailyInsight extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                     const Padding(
+                    const Padding(
                       padding: EdgeInsets.only(top: 0, bottom: 1),
                       child: SizedBox(
                         width: 250,

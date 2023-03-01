@@ -10,8 +10,14 @@ const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
 const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
 
 class Navbar extends StatefulWidget {
-  int currentIndex =0;
-  List pages = [const HomePage(), const Favorite(), const Write(), const Explore(), const Profile()];
+  int currentIndex = 0;
+  List pages = [
+    const HomePage(),
+    const Favorite(),
+    const Write(),
+    const Explore(),
+    const Profile()
+  ];
 
   Navbar({super.key});
 
@@ -26,7 +32,7 @@ class _NavbarState extends State<Navbar> {
       body: widget.pages[widget.currentIndex],
       bottomNavigationBar: GNav(
           iconSize: 15,
-          gap: 4, 
+          gap: 4,
           backgroundColor: warnaUngu,
           color: Colors.white,
           activeColor: warnaOren,
@@ -41,13 +47,12 @@ class _NavbarState extends State<Navbar> {
           },
           selectedIndex: 0,
           tabs: const [
-          
-          GButton(icon: Icons.home, text: "Home"),
-          GButton(icon: Icons.favorite, text: "Like"),
-          GButton(icon: Icons.add_box_rounded, text: "Write"),
-          GButton(icon: Icons.explore, text: "Explore"),
-          GButton(icon: Icons.person, text: "Profile"),
-        ])  ,
+            GButton(icon: Icons.home, text: "Home"),
+            GButton(icon: Icons.favorite, text: "Like"),
+            GButton(icon: Icons.add_box_rounded, text: "Write"),
+            GButton(icon: Icons.explore, text: "Explore"),
+            GButton(icon: Icons.person, text: "Profile"),
+          ]),
     );
   }
 }

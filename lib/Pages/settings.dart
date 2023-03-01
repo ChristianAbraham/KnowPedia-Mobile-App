@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Pages/aboutus.dart';
+import 'package:knowpedia/Pages/login.dart';
+
+const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
+const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -91,7 +95,10 @@ class Setting extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.pop(context);
+                            Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => LoginScreen()));
                           },
                           child: const Text('Log Out',
                               style: TextStyle(fontFamily: 'Montserrat')),
