@@ -21,7 +21,7 @@ class LoginScreen extends StatelessWidget {
                 height: 800,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/LoginPage.png"),
+                        image: AssetImage("assets/images/Login.png"),
                         fit: BoxFit.cover)),
               ),
               Center(
@@ -57,9 +57,9 @@ class LoginScreen extends StatelessWidget {
                               enabledBorder: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(40),
                                   borderSide:
-                                      BorderSide(width: 1.5, color: warnaOren)),
-                              hintText: 'Chris@email.com',
-                              hintStyle: TextStyle(color: warnaOren)),
+                                      BorderSide(width: 1.5, color: warnaUngu)),
+                              hintText: 'Password',
+                              hintStyle: TextStyle(color: warnaUngu)),
                         ),
                       ),
                     )
