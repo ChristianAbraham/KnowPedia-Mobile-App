@@ -102,11 +102,41 @@ class HomePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           fontFamily: "Montserrat")),
                 ),
-                const DailyInsight(),
-                const DailyInsight(),
-                const DailyInsight(),
-                const DailyInsight(),
-                const DailyInsight(),
+                DailyInsight(
+                  image: "https://picsum.photos/90/100",
+                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                  subtitle:
+                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                  kategori: "Science",
+                ),
+                DailyInsight(
+                  image: "https://picsum.photos/90/100",
+                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                  subtitle:
+                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                  kategori: "Science",
+                ),
+                DailyInsight(
+                  image: "https://picsum.photos/90/100",
+                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                  subtitle:
+                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                  kategori: "Science",
+                ),
+                DailyInsight(
+                  image: "https://picsum.photos/90/100",
+                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                  subtitle:
+                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                  kategori: "Science",
+                ),
+                DailyInsight(
+                  image: "https://picsum.photos/90/100",
+                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                  subtitle:
+                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+                  kategori: "Science",
+                ),
               ],
             ))
           ],
@@ -117,9 +147,19 @@ class HomePage extends StatelessWidget {
 }
 
 class DailyInsight extends StatelessWidget {
-  const DailyInsight({
-    super.key,
-  });
+  String image = "https://picsum.photos/90/100";
+  String title = "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang";
+  String subtitle =
+      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya";
+  String kategori = "Science";
+  String author = "Hana";
+
+  DailyInsight(
+      {super.key,
+      required this.image,
+      required this.title,
+      required this.subtitle,
+      required this.kategori});
 
   @override
   Widget build(BuildContext context) {

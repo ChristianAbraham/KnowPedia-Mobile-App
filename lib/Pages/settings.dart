@@ -120,8 +120,8 @@ class Setting extends StatelessWidget {
                         color: warnaUngu)),
                 trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu)),
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const AboutUs()));
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => AboutUs()));
             },
           ),
         ]));
