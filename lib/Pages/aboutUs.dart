@@ -28,7 +28,7 @@ class AboutUs extends StatelessWidget {
         MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black,
       appBar: myAppBar,
       body: SingleChildScrollView(
         child: Padding(
@@ -36,17 +36,22 @@ class AboutUs extends StatelessWidget {
           child: Center(
             child: Column(
               children: [
+                SizedBox(
+                    height: bodyHeight * 0.2,
+                    width: appWidth * 0.8,
+                    child: Image.asset("assets/images/Logo-KnowPedia..png")),
+                SizedBox(height: bodyHeight * 0.05),
                 Container(
                   height: bodyHeight * 0.5,
-                  width: appWidth * 0.7,
+                  width: appWidth * 0.8,
                   decoration: const BoxDecoration(
                     color: Colors.amber,
                   ),
                 ),
-                SizedBox(height: bodyHeight * 0.05),
+                SizedBox(height: bodyHeight * 0.02),
                 Container(
                   height: bodyHeight * 0.5,
-                  width: appWidth * 0.7,
+                  width: appWidth * 0.8,
                   decoration: const BoxDecoration(
                     color: Colors.amber,
                   ),
