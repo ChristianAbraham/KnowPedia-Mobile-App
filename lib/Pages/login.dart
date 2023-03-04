@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Pages/signup.dart';
-import 'package:knowpedia/main.dart';
 import 'package:knowpedia/navbar.dart';
 
 const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
