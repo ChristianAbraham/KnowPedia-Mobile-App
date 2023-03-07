@@ -28,7 +28,7 @@ class AboutUs extends StatelessWidget {
         MediaQuery.of(context).padding.top;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: warnaUngu,
       appBar: myAppBar,
       body: SingleChildScrollView(
         child: Padding(
@@ -40,20 +40,73 @@ class AboutUs extends StatelessWidget {
                     height: bodyHeight * 0.2,
                     width: appWidth * 0.8,
                     child: Image.asset("assets/images/Logo-KnowPedia..png")),
-                SizedBox(height: bodyHeight * 0.05),
+                SizedBox(height: bodyHeight * 0.025),
                 Container(
                   height: bodyHeight * 0.5,
                   width: appWidth * 0.8,
                   decoration: const BoxDecoration(
-                    color: Colors.amber,
+                    color: Colors.transparent,
+                  ),
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                            height: 250,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset("assets/images/chris.jpg"))),
+                        const Text(
+                          "Christian Abraham Putra",
+                          style: TextStyle(
+                              fontFamily: 'montserrat',
+                              fontSize: 18,
+                              color: Colors.white),
+                        ),
+                        const Text(
+                          "082111633023",
+                          style: TextStyle(
+                              fontFamily: 'montserrat',
+                              fontSize: 18,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-                SizedBox(height: bodyHeight * 0.02),
                 Container(
                   height: bodyHeight * 0.5,
                   width: appWidth * 0.8,
                   decoration: const BoxDecoration(
-                    color: Colors.amber,
+                    color: Colors.transparent,
+                  ),
+                  child: Center(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        SizedBox(
+                            height: 250,
+                            child: ClipRRect(
+                                borderRadius: BorderRadius.circular(20),
+                                child: Image.asset("assets/images/ilyas.jpg"))),
+                        const Text(
+                          "Moch Ilyas Saktiono Putra",
+                          style: TextStyle(
+                              fontFamily: 'montserrat',
+                              fontSize: 18,
+                              color: Colors.white),
+                        ),
+                        const Text(
+                          "082111633058",
+                          style: TextStyle(
+                              fontFamily: 'montserrat',
+                              fontSize: 18,
+                              color: Colors.white),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ],
