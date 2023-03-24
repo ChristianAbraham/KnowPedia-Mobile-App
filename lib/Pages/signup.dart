@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:knowpedia/navbar.dart';
-import 'homepage.dart';
-
-const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
-const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
+import 'package:knowpedia/Components/colors.dart';
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});

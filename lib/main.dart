@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/navbar.dart';
 import 'Pages/login.dart';
 
 void main(List<String> args) {
