@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import '../Components/searchbar.dart';
 import 'homepage.dart';
-
-const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
-const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
+import '../Components/colors.dart';
 
 class Favorite extends StatelessWidget {
   const Favorite({super.key});

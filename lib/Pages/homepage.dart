@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Pages/article.dart';
 import 'package:knowpedia/Pages/profile.dart';
-
-const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
-const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
+import 'package:knowpedia/Components/colors.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -172,7 +170,7 @@ class DailyInsight extends StatelessWidget {
         padding: const EdgeInsets.only(bottom: 20, top: 5),
         child: Container(
           width: 480,
-          height: 100,
+          height: 110,
           color: Colors.transparent,
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -181,13 +179,13 @@ class DailyInsight extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: const Image(
                   image: NetworkImage("https://picsum.photos/90/100"),
-                  width: 90,
-                  height: 100,
+                  width: 100,
+                  height: 110,
                   fit: BoxFit.cover,
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(12, 0, 0, 0),
+                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -214,6 +212,7 @@ class DailyInsight extends StatelessWidget {
                         "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
+                        textAlign: TextAlign.justify,
                         style: TextStyle(
                             color: warnaUngu,
                             height: 1.5,
@@ -223,7 +222,7 @@ class DailyInsight extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 6),
+                      padding: const EdgeInsets.only(top: 8),
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

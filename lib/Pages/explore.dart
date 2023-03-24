@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/searchbar.dart';
-
-const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
-const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
+import 'package:knowpedia/Components/colors.dart';
 
 class Explore extends StatelessWidget {
   const Explore({super.key});

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/favorite.dart';
+import 'package:knowpedia/Components/colors.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
@@ -13,13 +13,10 @@ class SplashScreen extends StatelessWidget {
             "KnowPedia",
             textAlign: TextAlign.justify,
             style: TextStyle(
-                color: Colors.white,
-                fontSize: 40,
-                fontWeight: FontWeight.w900),
+                color: Colors.white, fontSize: 40, fontWeight: FontWeight.w900),
           ),
         ),
       ),
     );
   }
 }
-

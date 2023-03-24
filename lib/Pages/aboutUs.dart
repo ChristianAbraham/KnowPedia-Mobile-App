@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Components/searchbar.dart';
+import 'package:knowpedia/Components/colors.dart';
 
 class AboutUs extends StatelessWidget {
   const AboutUs({super.key});
