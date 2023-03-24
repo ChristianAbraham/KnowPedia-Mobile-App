@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Pages/article.dart';
 import 'package:knowpedia/Pages/settings.dart';
-
-const Color warnaUngu = Color.fromARGB(255, 75, 38, 72);
-const Color warnaOren = Color.fromARGB(255, 239, 140, 51);
+import 'package:knowpedia/Components/colors.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -15,7 +13,7 @@ class Profile extends StatelessWidget {
       appBar: AppBar(
         iconTheme: const IconThemeData(color: warnaUngu, size: 30),
         centerTitle: true,
-        toolbarHeight: 80,
+        toolbarHeight: 60,
         title: const Text('Profile',
             style: TextStyle(
                 color: warnaUngu,
@@ -100,89 +98,49 @@ class Profile extends StatelessWidget {
                           ),
                         ]),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          height: 50,
-                          width: 100,
-                          color: Colors.transparent,
-                          child: Column(children: const [
-                            Text('100',
-                                style: TextStyle(
-                                  color: warnaUngu,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 20,
-                                )),
-                            Text('Followed',
-                                style: TextStyle(
-                                  color: warnaUngu,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                )),
-                          ]),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 100,
-                          color: Colors.transparent,
-                          child: Column(children: const [
-                            Text('100',
-                                style: TextStyle(
-                                  color: warnaUngu,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 20,
-                                )),
-                            Text('Following',
-                                style: TextStyle(
-                                  color: warnaUngu,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                )),
-                          ]),
-                        ),
-                        Container(
-                          height: 50,
-                          width: 100,
-                          color: Colors.transparent,
-                          child: Column(children: const [
-                            Text('100',
-                                style: TextStyle(
-                                  color: warnaUngu,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.w300,
-                                  fontSize: 20,
-                                )),
-                            Text('Articles',
-                                style: TextStyle(
-                                  color: warnaUngu,
-                                  fontFamily: "Montserrat",
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 12,
-                                )),
-                          ]),
-                        ),
-                      ],
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 15.0),
+                    child: Text(
+                      "Latest Articles",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontFamily: "Montserrat",
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20),
                     ),
                   ),
-                  const Text(
-                    "Latest Articles",
-                    style: TextStyle(
-                        fontFamily: "Montserrat",
-                        fontWeight: FontWeight.bold,
-                        fontSize: 16),
+                  ProfileArticle(
+                    image: "https://picsum.photos/280/150",
+                    title:
+                        "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                    description:
+                        "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya jadi ini buat ngetes aja sih sepanjang apa teks ini semoga bisa panjang",
+                    category: "Science",
                   ),
-                  ProfileArticle(),
-                  ProfileArticle(),
-                  ProfileArticle(),
-                  ProfileArticle(),
+                  ProfileArticle(
+                    image: "https://picsum.photos/280/150",
+                    title:
+                        "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                    description:
+                        "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya jadi ini buat ngetes aja sih sepanjang apa teks ini semoga bisa panjang",
+                    category: "Biology",
+                  ),
+                  ProfileArticle(
+                    image: "https://picsum.photos/280/150",
+                    title:
+                        "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                    description:
+                        "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya jadi ini buat ngetes aja sih sepanjang apa teks ini semoga bisa panjang",
+                    category: "Art",
+                  ),
+                  ProfileArticle(
+                    image: "https://picsum.photos/280/150",
+                    title:
+                        "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                    description:
+                        "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya jadi ini buat ngetes aja sih sepanjang apa teks ini semoga bisa panjang",
+                    category: "Social",
+                  )
                 ],
               ),
             ),
@@ -194,9 +152,16 @@ class Profile extends StatelessWidget {
 }
 
 class ProfileArticle extends StatelessWidget {
-  const ProfileArticle({
-    super.key,
-  });
+  String image = "https://picsum.photos/280/150";
+  String title = "Ini Judul";
+  String description = "Ini Deskripsi";
+  String category = "Ini Kategori";
+
+  ProfileArticle(
+      {required this.image,
+      required this.title,
+      required this.description,
+      required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -206,19 +171,19 @@ class ProfileArticle extends StatelessWidget {
             context, MaterialPageRoute(builder: (context) => const Article()));
       },
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 8.0),
+        padding: const EdgeInsets.only(bottom: 15.0),
         child: Container(
-          height: 150,
+          height: 120,
           child: Row(
             children: [
               SizedBox(
                 width: 120,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: const Image(
-                    image: NetworkImage("https://picsum.photos/280/150"),
+                  child: Image(
+                    image: NetworkImage(image),
                     width: 280,
-                    height: 140,
+                    height: 120,
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -229,15 +194,14 @@ class ProfileArticle extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 0, bottom: 1),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 0, bottom: 1),
                       child: SizedBox(
                         width: 230,
-                        child: Text(
-                            "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+                        child: Text(title,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 color: warnaUngu,
                                 fontSize: 13,
                                 fontWeight: FontWeight.w700,
@@ -245,13 +209,13 @@ class ProfileArticle extends StatelessWidget {
                                 fontFamily: "Montserrat")),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 230,
                       child: Text(
-                        "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya jadi ini buat ngetes aja sih sepanjang apa teks ini semoga bisa panjang",
+                        description,
                         maxLines: 2,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: warnaUngu,
                             height: 1.5,
                             fontSize: 9,
@@ -270,10 +234,10 @@ class ProfileArticle extends StatelessWidget {
                             decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(5),
                                 color: warnaUngu),
-                            child: const Center(
+                            child: Center(
                                 child: Text(
-                              "Science",
-                              style: TextStyle(
+                              category,
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 10,
                                   fontWeight: FontWeight.w700,
