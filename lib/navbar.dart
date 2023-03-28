@@ -10,7 +10,7 @@ import 'Components/colors.dart';
 class Navbar extends StatefulWidget {
   int currentIndex = 0;
   List pages = [
-    const HomePage(),
+    HomePage(),
     const Favorite(),
     const Write(),
     const Explore(),
