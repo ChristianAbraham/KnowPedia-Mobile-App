@@ -1,12 +1,26 @@
+import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/article.dart';
 import 'package:knowpedia/Pages/profile.dart';
 import 'package:knowpedia/Components/colors.dart';
+import '../widgets/dailyinsight.dart';
+import '../widgets/mainarticle.dart';
+import '../models/article.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+  final faker = Faker();
+
   @override
   Widget build(BuildContext context) {
+    List<Article> dataMain = List.generate(20, (index) {
+      return Article(
+          faker.lorem.sentence(),
+          faker.lorem.sentence(),
+          'https://picsum.photos/1080/1000?random=$index',
+          faker.person.firstName(),
+          "Science",
+          faker.lorem.sentence());
+    });
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -63,285 +77,90 @@ class HomePage extends StatelessWidget {
           )),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Flexible(
-                child: ListView(
-              scrollDirection: Axis.vertical,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 20, top: 10),
-                  child: Text("Main Article",
-                      style: TextStyle(
-                          color: warnaUngu,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Montserrat")),
-                ),
-                SizedBox(
-                  height: 180,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: const [
-                      MainArticle(),
-                      MainArticle(),
-                      MainArticle(),
-                      MainArticle(),
-                    ],
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(bottom: 10, top: 20),
-                  child: Text("Daily Insight",
-                      style: TextStyle(
-                          color: warnaUngu,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Montserrat")),
-                ),
-                DailyInsight(
-                  image: "https://picsum.photos/90/100",
-                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                  subtitle:
-                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                  kategori: "Science",
-                ),
-                DailyInsight(
-                  image: "https://picsum.photos/90/100",
-                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                  subtitle:
-                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                  kategori: "Science",
-                ),
-                DailyInsight(
-                  image: "https://picsum.photos/90/100",
-                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                  subtitle:
-                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                  kategori: "Science",
-                ),
-                DailyInsight(
-                  image: "https://picsum.photos/90/100",
-                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                  subtitle:
-                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                  kategori: "Science",
-                ),
-                DailyInsight(
-                  image: "https://picsum.photos/90/100",
-                  title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                  subtitle:
-                      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                  kategori: "Science",
-                ),
-              ],
-            ))
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class DailyInsight extends StatelessWidget {
-  String image = "https://picsum.photos/90/100";
-  String title = "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang";
-  String subtitle =
-      "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya";
-  String kategori = "Science";
-  String author = "Hana";
-
-  DailyInsight(
-      {super.key,
-      required this.image,
-      required this.title,
-      required this.subtitle,
-      required this.kategori});
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Article()));
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(bottom: 20, top: 5),
-        child: Container(
-          width: 480,
-          height: 110,
-          color: Colors.transparent,
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: const Image(
-                  image: NetworkImage("https://picsum.photos/90/100"),
-                  width: 100,
-                  height: 110,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Padding(
-                      padding: EdgeInsets.only(top: 0, bottom: 1),
-                      child: SizedBox(
-                        width: 250,
-                        child: Text(
-                            "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                color: warnaUngu,
-                                fontSize: 13,
-                                fontWeight: FontWeight.w700,
-                                height: 1.5,
-                                fontFamily: "Montserrat")),
-                      ),
-                    ),
-                    const SizedBox(
-                      width: 250,
-                      child: Text(
-                        "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
-                        textAlign: TextAlign.justify,
-                        style: TextStyle(
-                            color: warnaUngu,
-                            height: 1.5,
-                            fontSize: 9,
-                            fontWeight: FontWeight.w300,
-                            fontFamily: "Montserrat"),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 8),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Container(
-                            width: 50,
-                            height: 13,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(3),
-                                color: warnaUngu),
-                            child: const Center(
-                                child: Text(
-                              "Science",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 10,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: "Montserrat"),
-                            )),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(left: 5),
-                            child: Text("• By Hana",
-                                style: TextStyle(
-                                    color: warnaOren,
-                                    fontSize: 10,
-                                    fontWeight: FontWeight.w500,
-                                    fontFamily: "Montserrat")),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class MainArticle extends StatelessWidget {
-  const MainArticle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Article()));
-      },
-      child: Padding(
-        padding: const EdgeInsets.only(right: 35),
-        child: Container(
-          width: 280,
-          height: 200,
-          color: Colors.transparent,
+        child: SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: const Image(
-                  image: NetworkImage("https://picsum.photos/280/130"),
-                  width: 280,
-                  height: 130,
-                  fit: BoxFit.cover,
+              const Padding(
+                padding: EdgeInsets.only(bottom: 20, top: 10),
+                child: Text("Main Article",
+                    style: TextStyle(
+                        color: warnaUngu,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Montserrat")),
+              ),
+              SizedBox(
+                height: 180,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemBuilder: (context, index) {
+                    return MainArticle(
+                      image: dataMain[index].image,
+                      title: dataMain[index].title,
+                      author: dataMain[index].author,
+                    );
+                  },
+                  itemCount: 4,
                 ),
               ),
               const Padding(
-                padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
-                child: SizedBox(
-                  width: 280,
-                  child: Text("Lorem Ipsum Judul Waw",
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: warnaUngu,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "Montserrat")),
-                ),
+                padding: EdgeInsets.only(bottom: 10, top: 20),
+                child: Text("Daily Insight",
+                    style: TextStyle(
+                        color: warnaUngu,
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Montserrat")),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: const [
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                    child: Text("• Science",
-                        style: TextStyle(
-                            color: warnaOren,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Montserrat")),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                    child: Text("• By Hana",
-                        style: TextStyle(
-                            color: warnaOren,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Montserrat")),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                    child: Text("• 2.5k View",
-                        style: TextStyle(
-                            color: warnaOren,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Montserrat")),
-                  ),
-                ],
-              ),
+              ListView.builder(
+                  shrinkWrap: true,
+                  physics: ScrollPhysics(),
+                  itemBuilder: (context, index) {
+                    return DailyInsight(
+                      image: dataMain[index + 4].image,
+                      title: dataMain[index + 4].title,
+                      subtitle: dataMain[index + 4].description,
+                      kategori: dataMain[index + 4].category,
+                      author: dataMain[index + 4].author,
+                    );
+                  },
+                  itemCount: 6),
+              // DailyInsight(
+              //   image: "https://picsum.photos/90/100",
+              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+              //   subtitle:
+              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+              //   kategori: "Science",
+              // ),
+              // DailyInsight(
+              //   image: "https://picsum.photos/90/100",
+              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+              //   subtitle:
+              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+              //   kategori: "Science",
+              // ),
+              // DailyInsight(
+              //   image: "https://picsum.photos/90/100",
+              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+              //   subtitle:
+              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+              //   kategori: "Science",
+              // ),
+              // DailyInsight(
+              //   image: "https://picsum.photos/90/100",
+              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+              //   subtitle:
+              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+              //   kategori: "Science",
+              // ),
+              // DailyInsight(
+              //   image: "https://picsum.photos/90/100",
+              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
+              //   subtitle:
+              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
+              //   kategori: "Science",
+              // )
             ],
           ),
         ),
