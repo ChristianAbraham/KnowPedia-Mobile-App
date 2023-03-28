@@ -1,4 +1,4 @@
-# knowpedia
+# KnowPedia
 
 A new Flutter project.
 
