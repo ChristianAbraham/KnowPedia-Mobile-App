@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/article.dart';
+import 'package:knowpedia/Pages/articlepage.dart';
 import 'package:knowpedia/Pages/settings.dart';
 import 'package:knowpedia/Components/colors.dart';
 
@@ -167,8 +167,8 @@ class ProfileArticle extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => const Article()));
+        Navigator.push(context,
+            MaterialPageRoute(builder: (context) => const ArticlePage()));
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15.0),

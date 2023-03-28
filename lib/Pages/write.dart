@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../Components/colors.dart';
 
 class Write extends StatelessWidget {
   const Write({super.key});
@@ -6,11 +7,18 @@ class Write extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-          children: const [
-            Text("Write"),
-          ]
-      )
-    ); 
+        appBar: AppBar(
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          elevation: 0,
+          toolbarHeight: 75,
+          title: const Text('Write',
+              style: TextStyle(
+                  color: warnaUngu,
+                  fontSize: 25,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Montserrat")),
+        ),
+        body: Column());
   }
 }
