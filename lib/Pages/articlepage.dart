@@ -2,7 +2,14 @@ import 'package:flutter/material.dart';
 import '../Components/colors.dart';
 
 class ArticlePage extends StatelessWidget {
-  const ArticlePage({super.key});
+  String title;
+  String image;
+  String author;
+  String category;
+  String content;
+
+  ArticlePage(this.title, this.image, this.author, this.category, this.content,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +27,14 @@ class ArticlePage extends StatelessWidget {
               child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
                   child: Image.network(
-                    "https://picsum.photos/280/130",
+                    image,
                     fit: BoxFit.cover,
                   ))),
-          const Padding(
-            padding: EdgeInsets.all(12),
+          Padding(
+            padding: const EdgeInsets.all(12),
             child: Text(
-              "Ini Judul Lorem Ipsum Yang Panjang Ya Sapatau Menarik",
-              style: TextStyle(
+              title,
+              style: const TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 25,
                   fontWeight: FontWeight.w700,
@@ -41,26 +48,26 @@ class ArticlePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Row(
-                  children: const [
+                  children: [
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                      child: Text("• Science",
-                          style: TextStyle(
+                      padding: const EdgeInsets.fromLTRB(0, 2, 8, 0),
+                      child: Text("• $category",
+                          style: const TextStyle(
                               color: warnaOren,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               fontFamily: "Montserrat")),
                     ),
                     Padding(
-                      padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                      child: Text("• By Hana",
-                          style: TextStyle(
+                      padding: const EdgeInsets.fromLTRB(0, 2, 8, 0),
+                      child: Text("• By $author",
+                          style: const TextStyle(
                               color: warnaOren,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
                               fontFamily: "Montserrat")),
                     ),
-                    Padding(
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
                       child: Text("• 2.5k View",
                           style: TextStyle(

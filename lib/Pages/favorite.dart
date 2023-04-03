@@ -1,8 +1,8 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../Components/searchbar.dart';
 import '../Components/colors.dart';
-import '../models/article.dart';
+import '../providers/articles.dart';
 import '../widgets/dailyinsight.dart';
 
 class Favorite extends StatelessWidget {
@@ -10,15 +10,8 @@ class Favorite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Article> dataMain = List.generate(20, (index) {
-      return Article(
-          faker.lorem.sentence(),
-          faker.lorem.sentence(),
-          'https://picsum.photos/280/300?random=$index',
-          faker.person.firstName(),
-          "Science",
-          faker.lorem.sentence());
-    });
+    final data = Provider.of<Articles>(context);
+    final dataMain = data.articleItem;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -42,15 +35,8 @@ class Favorite extends StatelessWidget {
             child: ListView.builder(
                 shrinkWrap: true,
                 physics: ScrollPhysics(),
-                itemBuilder: (context, index) {
-                  return DailyInsight(
-                    image: dataMain[index + 4].image,
-                    title: dataMain[index + 4].title,
-                    subtitle: dataMain[index + 4].description,
-                    kategori: dataMain[index + 4].category,
-                    author: dataMain[index + 4].author,
-                  );
-                },
+                itemBuilder: (context, index) => ChangeNotifierProvider.value(
+                    value: dataMain[index], child: DailyInsight()),
                 itemCount: 6),
           ),
         ]),

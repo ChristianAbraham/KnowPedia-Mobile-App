@@ -160,7 +160,7 @@ class SignUp extends StatelessWidget {
                 onTap: () {
                   // push to navbar
                   Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Navbar()));
+                      MaterialPageRoute(builder: (context) => Navbar(0)));
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(top: 50, left: 20, right: 20),

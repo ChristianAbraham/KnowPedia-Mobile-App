@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:knowpedia/Pages/homepage.dart';
+import 'package:knowpedia/providers/articles.dart';
+import 'package:provider/provider.dart';
 import 'Pages/favorite.dart';
 import 'Pages/explore.dart';
 import 'Pages/write.dart';
@@ -17,7 +19,7 @@ class Navbar extends StatefulWidget {
     const Profile()
   ];
 
-  Navbar({super.key});
+  Navbar(this.currentIndex);
 
   @override
   State<Navbar> createState() => _NavbarState();

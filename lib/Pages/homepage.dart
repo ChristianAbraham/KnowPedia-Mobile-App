@@ -1,25 +1,19 @@
 import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/profile.dart';
 import 'package:knowpedia/Components/colors.dart';
+import 'package:knowpedia/navbar.dart';
+import 'package:provider/provider.dart';
 import '../widgets/dailyinsight.dart';
 import '../widgets/mainarticle.dart';
-import '../models/article.dart';
+import '../providers/articles.dart';
 
 class HomePage extends StatelessWidget {
   final faker = Faker();
 
   @override
   Widget build(BuildContext context) {
-    List<Article> dataMain = List.generate(20, (index) {
-      return Article(
-          faker.lorem.sentence(),
-          faker.lorem.sentence(),
-          'https://picsum.photos/1080/1000?random=$index',
-          faker.person.firstName(),
-          "Science",
-          faker.lorem.sentence());
-    });
+    final data = Provider.of<Articles>(context);
+    final dataMain = data.articleItem;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -66,10 +60,8 @@ class HomePage extends StatelessWidget {
                         NetworkImage("https://picsum.photos/130/130"),
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Profile()));
+                    Navigator.pushReplacement(context,
+                        MaterialPageRoute(builder: (context) => Navbar(4)));
                   },
                 ),
               ],
@@ -94,13 +86,8 @@ class HomePage extends StatelessWidget {
                 height: 180,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return MainArticle(
-                      image: dataMain[index].image,
-                      title: dataMain[index].title,
-                      author: dataMain[index].author,
-                    );
-                  },
+                  itemBuilder: (context, index) => ChangeNotifierProvider.value(
+                      value: dataMain[index], child: MainArticle()),
                   itemCount: 4,
                 ),
               ),
@@ -116,51 +103,9 @@ class HomePage extends StatelessWidget {
               ListView.builder(
                   shrinkWrap: true,
                   physics: ScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return DailyInsight(
-                      image: dataMain[index + 4].image,
-                      title: dataMain[index + 4].title,
-                      subtitle: dataMain[index + 4].description,
-                      kategori: dataMain[index + 4].category,
-                      author: dataMain[index + 4].author,
-                    );
-                  },
+                  itemBuilder: (context, index) => ChangeNotifierProvider.value(
+                      value: dataMain[index + 4], child: DailyInsight()),
                   itemCount: 6),
-              // DailyInsight(
-              //   image: "https://picsum.photos/90/100",
-              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-              //   subtitle:
-              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-              //   kategori: "Science",
-              // ),
-              // DailyInsight(
-              //   image: "https://picsum.photos/90/100",
-              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-              //   subtitle:
-              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-              //   kategori: "Science",
-              // ),
-              // DailyInsight(
-              //   image: "https://picsum.photos/90/100",
-              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-              //   subtitle:
-              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-              //   kategori: "Science",
-              // ),
-              // DailyInsight(
-              //   image: "https://picsum.photos/90/100",
-              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-              //   subtitle:
-              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-              //   kategori: "Science",
-              // ),
-              // DailyInsight(
-              //   image: "https://picsum.photos/90/100",
-              //   title: "Ini Judul Artikel Yang Eye Catchy Tes Judul Panjang",
-              //   subtitle:
-              //       "Ini subtitle artikel yang menarik tapi ndatau kalian bakal tertarik atau tidak ya memang agak panjang ya",
-              //   kategori: "Science",
-              // )
             ],
           ),
         ),

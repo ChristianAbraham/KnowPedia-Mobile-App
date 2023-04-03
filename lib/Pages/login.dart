@@ -132,7 +132,7 @@ class LoginScreen extends StatelessWidget {
                             Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Navbar()));
+                                    builder: (context) => Navbar(0)));
                           },
                           child: Container(
                             height: 60,
