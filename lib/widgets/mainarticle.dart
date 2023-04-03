@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../Components/colors.dart';
 import '../Pages/articlepage.dart';
+import '../models/article.dart';
+import '../providers/articles.dart';
 
 class MainArticle extends StatelessWidget {
-  String image = "https://picsum.photos/280/130";
-  String title = "Lorem Ipsum Judul Waw";
-  String author = "Hana";
-
-  MainArticle({required this.image, required this.title, required this.author});
-
   @override
   Widget build(BuildContext context) {
+    final data = Provider.of<Article>(context);
+
     return InkWell(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ArticlePage()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => ArticlePage(data.title, data.image,
+                    data.author, data.category, data.content)));
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 35),
@@ -29,58 +31,74 @@ class MainArticle extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(15),
                 child: Image(
-                  image: NetworkImage(image),
+                  image: NetworkImage(data.image),
                   width: 280,
                   height: 130,
                   fit: BoxFit.cover,
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(2, 10, 0, 5),
-                child: SizedBox(
-                  width: 280,
-                  child: Text(title,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: const TextStyle(
-                          color: warnaUngu,
-                          fontSize: 14,
-                          fontWeight: FontWeight.w700,
-                          fontFamily: "Montserrat")),
-                ),
-              ),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(2, 2, 8, 0),
-                    child: Text("• Science",
-                        style: TextStyle(
-                            color: warnaOren,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Montserrat")),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                    child: Text("• By $author",
-                        style: const TextStyle(
-                            color: warnaOren,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Montserrat")),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                    child: Text("• 2.5k View",
-                        style: TextStyle(
-                            color: warnaOren,
-                            fontSize: 10,
-                            fontWeight: FontWeight.w500,
-                            fontFamily: "Montserrat")),
-                  ),
+                  Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(2, 10, 0, 5),
+                          child: SizedBox(
+                            width: 220,
+                            child: Text(data.title,
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                                style: const TextStyle(
+                                    color: warnaUngu,
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: "Montserrat")),
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(2, 2, 8, 0),
+                              child: Text("• Science",
+                                  style: TextStyle(
+                                      color: warnaOren,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "Montserrat")),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                              child: Text("• By ${data.author}",
+                                  style: const TextStyle(
+                                      color: warnaOren,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "Montserrat")),
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                              child: Text("• 2.5k View",
+                                  style: TextStyle(
+                                      color: warnaOren,
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      fontFamily: "Montserrat")),
+                            ),
+                          ],
+                        ),
+                      ]),
+                  IconButton(
+                    splashRadius: 10,
+                    onPressed: () {},
+                    icon: Icon(Icons.favorite_border_rounded),
+                    iconSize: 20,
+                  )
                 ],
-              ),
+              )
             ],
           ),
         ),
