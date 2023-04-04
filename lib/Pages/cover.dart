@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/colors.dart';
 
 class SplashScreen extends StatelessWidget {
+  const SplashScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(

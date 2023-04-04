@@ -3,9 +3,10 @@ import 'package:provider/provider.dart';
 import '../Components/colors.dart';
 import '../Pages/articlepage.dart';
 import '../models/article.dart';
-import '../providers/articles.dart';
 
 class MainArticle extends StatelessWidget {
+  const MainArticle({super.key});
+
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Article>(context);
@@ -71,7 +72,7 @@ class MainArticle extends StatelessWidget {
                                       fontFamily: "Montserrat")),
                             ),
                             Padding(
-                              padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
+                              padding: const EdgeInsets.fromLTRB(0, 2, 8, 0),
                               child: Text("• By ${data.author}",
                                   style: const TextStyle(
                                       color: warnaOren,
@@ -94,7 +95,7 @@ class MainArticle extends StatelessWidget {
                   IconButton(
                     splashRadius: 10,
                     onPressed: () {},
-                    icon: Icon(Icons.favorite_border_rounded),
+                    icon: const Icon(Icons.favorite_border_rounded),
                     iconSize: 20,
                   )
                 ],

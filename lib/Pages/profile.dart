@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/articlepage.dart';
 import 'package:knowpedia/Pages/settings.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
-
-import '../models/article.dart';
 import '../providers/articles.dart';
 import '../widgets/profilearticle.dart';
 
@@ -32,7 +29,7 @@ class Profile extends StatelessWidget {
         backgroundColor: Colors.white,
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 10),
+            padding: const EdgeInsets.only(right: 10),
             child: IconButton(
               onPressed: () {
                 Navigator.push(context,
@@ -117,7 +114,7 @@ class Profile extends StatelessWidget {
                 ),
                 ListView.builder(
                   shrinkWrap: true,
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   itemBuilder: (context, index) => ChangeNotifierProvider.value(
                       value: dataMain[index + 3], child: ProfileArticle()),
                   itemCount: 4,

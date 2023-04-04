@@ -6,6 +6,8 @@ import '../Pages/articlepage.dart';
 import '../models/article.dart';
 
 class ProfileArticle extends StatelessWidget {
+  const ProfileArticle({super.key});
+
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Article>(context);
@@ -19,7 +21,7 @@ class ProfileArticle extends StatelessWidget {
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15.0),
-        child: Container(
+        child: SizedBox(
           height: 120,
           child: Row(
             children: [

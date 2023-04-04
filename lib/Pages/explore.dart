@@ -33,7 +33,7 @@ class Explore extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(bottom: 15),
-                    child: Container(
+                    child: SizedBox(
                       width: 306,
                       height: 149,
                       child: ClipRRect(
@@ -69,7 +69,7 @@ class Explore extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.only(right: 15),
-                        child: Container(
+                        child: SizedBox(
                           width: 170,
                           height: 172,
                           child: ClipRRect(
@@ -131,7 +131,7 @@ class Explore extends StatelessWidget {
                           ),
                           Padding(
                             padding: const EdgeInsets.only(top: 15),
-                            child: Container(
+                            child: SizedBox(
                               width: 177.3,
                               height: 78,
                               child: ClipRRect(

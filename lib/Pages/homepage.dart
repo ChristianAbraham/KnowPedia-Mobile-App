@@ -10,6 +10,8 @@ import '../providers/articles.dart';
 class HomePage extends StatelessWidget {
   final faker = Faker();
 
+  HomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Articles>(context);
@@ -102,7 +104,7 @@ class HomePage extends StatelessWidget {
               ),
               ListView.builder(
                   shrinkWrap: true,
-                  physics: ScrollPhysics(),
+                  physics: const ScrollPhysics(),
                   itemBuilder: (context, index) => ChangeNotifierProvider.value(
                       value: dataMain[index + 4], child: DailyInsight()),
                   itemCount: 6),

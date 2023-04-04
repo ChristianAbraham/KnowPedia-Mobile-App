@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:knowpedia/Pages/homepage.dart';
-import 'package:knowpedia/providers/articles.dart';
-import 'package:provider/provider.dart';
 import 'Pages/favorite.dart';
 import 'Pages/explore.dart';
 import 'Pages/write.dart';
 import 'Pages/profile.dart';
 import 'Components/colors.dart';
 
+// ignore: must_be_immutable
 class Navbar extends StatefulWidget {
   int currentIndex = 0;
   List pages = [
@@ -19,7 +18,7 @@ class Navbar extends StatefulWidget {
     const Profile()
   ];
 
-  Navbar(this.currentIndex);
+  Navbar(this.currentIndex, {super.key});
 
   @override
   State<Navbar> createState() => _NavbarState();

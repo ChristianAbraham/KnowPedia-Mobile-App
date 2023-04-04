@@ -34,7 +34,7 @@ class Favorite extends StatelessWidget {
           Flexible(
             child: ListView.builder(
                 shrinkWrap: true,
-                physics: ScrollPhysics(),
+                physics: const ScrollPhysics(),
                 itemBuilder: (context, index) => ChangeNotifierProvider.value(
                     value: dataMain[index], child: DailyInsight()),
                 itemCount: 6),

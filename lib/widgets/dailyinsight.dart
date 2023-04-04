@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../providers/articles.dart';
 import '../Components/colors.dart';
 import '../Pages/articlepage.dart';
 import '../models/article.dart';
 
 class DailyInsight extends StatelessWidget {
+  const DailyInsight({super.key});
+
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Article>(context);
