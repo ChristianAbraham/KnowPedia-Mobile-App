@@ -13,7 +13,7 @@ class Navbar extends StatefulWidget {
   List pages = [
     HomePage(),
     const Favorite(),
-    const Write(),
+    Write(),
     const Explore(),
     const Profile()
   ];
