@@ -94,13 +94,13 @@ class ArticlePage extends StatelessWidget {
               ],
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(12.0),
+          Padding(
+            padding: const EdgeInsets.all(12.0),
             child: SizedBox(
               width: 480,
               child: Text(
-                "Artikel panjang yang menjadi isi artikel nantinya  tapi ini cuma contoh saja ya, jadi tidak ada yang menarik di sini, hanya contoh saja.",
-                style: TextStyle(
+                content,
+                style: const TextStyle(
                   fontFamily: 'Montserrat',
                   fontSize: 15,
                   fontWeight: FontWeight.w400,

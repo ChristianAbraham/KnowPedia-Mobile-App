@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/models/article.dart';
 import '../Components/colors.dart';
+import '../providers/articles.dart';
 
 class Write extends StatelessWidget {
-  const Write({super.key});
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
+  final TextEditingController imageController = TextEditingController();
+  final TextEditingController tagController = TextEditingController();
+  final TextEditingController contentController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +25,135 @@ class Write extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   fontFamily: "Montserrat")),
         ),
-        body: Column());
+        body: Padding(
+          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
+          child: SingleChildScrollView(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: TextField(
+                    maxLines: null,
+                    style: const TextStyle(
+                      color: warnaUngu,
+                      fontFamily: 'Montserrat',
+                      fontSize: 15,
+                      height: 1.5,
+                    ),
+                    controller: titleController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      )),
+                      labelText: 'Title',
+                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: TextField(
+                    maxLines: null,
+                    style: const TextStyle(
+                      color: warnaUngu,
+                      fontFamily: 'Montserrat',
+                      fontSize: 15,
+                      height: 1.5,
+                    ),
+                    controller: descriptionController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      )),
+                      labelText: 'Description',
+                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: TextField(
+                    style: const TextStyle(
+                      color: warnaUngu,
+                      fontFamily: 'Montserrat',
+                      fontSize: 15,
+                      height: 1.5,
+                    ),
+                    controller: imageController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      )),
+                      labelText: 'Image URL',
+                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: TextField(
+                    maxLines: 1,
+                    style: const TextStyle(
+                      color: warnaUngu,
+                      fontFamily: 'Montserrat',
+                      fontSize: 15,
+                      height: 1.5,
+                    ),
+                    controller: tagController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      )),
+                      labelText: 'Category',
+                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  child: TextField(
+                    maxLines: null,
+                    style: const TextStyle(
+                      color: warnaUngu,
+                      fontFamily: 'Montserrat',
+                      fontSize: 15,
+                      height: 1.5,
+                    ),
+                    controller: contentController,
+                    decoration: const InputDecoration(
+                      border: UnderlineInputBorder(
+                          borderRadius: BorderRadius.all(
+                        Radius.circular(10),
+                      )),
+                      labelText: 'Content',
+                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: FloatingActionButton(
+                      backgroundColor: warnaUngu,
+                      elevation: 2,
+                      onPressed: () {
+                        Articles().addArticle(
+                            titleController.text,
+                            descriptionController.text,
+                            imageController.text,
+                            "Christian",
+                            tagController.text,
+                            contentController.text);
+                      },
+                      child: const Icon(Icons.add_box_rounded)),
+                )
+              ],
+            ),
+          ),
+        ));
   }
 }

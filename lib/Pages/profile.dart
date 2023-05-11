@@ -3,7 +3,7 @@ import 'package:knowpedia/Pages/settings.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
 import '../providers/articles.dart';
-import '../widgets/profilearticle.dart';
+import '../widgets/dailyInsight.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -43,7 +43,7 @@ class Profile extends StatelessWidget {
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(15, 10, 15, 0),
+        padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
         child: Padding(
           padding: const EdgeInsets.only(top: 10),
           child: SingleChildScrollView(
@@ -116,7 +116,7 @@ class Profile extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const ScrollPhysics(),
                   itemBuilder: (context, index) => ChangeNotifierProvider.value(
-                      value: dataMain[index + 3], child: ProfileArticle()),
+                      value: dataMain[index + 3], child: DailyInsight()),
                   itemCount: 4,
                 ),
               ],
