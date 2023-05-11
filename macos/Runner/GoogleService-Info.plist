@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>641466964180-dn7tj1tvgsdmsju1dcck3tmbqaca7f4o.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.641466964180-dn7tj1tvgsdmsju1dcck3tmbqaca7f4o</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBk0444J1csn1W9ONwokB_dGjWhC5308sc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>641466964180</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.knowpedia</string>
+	<key>PROJECT_ID</key>
+	<string>knowpedia-df445</string>
+	<key>STORAGE_BUCKET</key>
+	<string>knowpedia-df445.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:641466964180:ios:232c1e09909ae6d51b4341</string>
+	<key>DATABASE_URL</key>
+	<string>https://knowpedia-df445-default-rtdb.asia-southeast1.firebasedatabase.app</string>
+</dict>
+</plist>

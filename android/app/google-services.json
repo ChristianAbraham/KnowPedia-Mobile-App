@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "641466964180",
+    "firebase_url": "https://knowpedia-df445-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "knowpedia-df445",
+    "storage_bucket": "knowpedia-df445.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641466964180:android:486d6bd5b6b453581b4341",
+        "android_client_info": {
+          "package_name": "com.example.knowpedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641466964180-j8g7q066isu4bfvfm9lr08abblnsif6b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCN5VAk-Iy1NGTZsXm55V9pxfNs1izTXWw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641466964180-j8g7q066isu4bfvfm9lr08abblnsif6b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "641466964180-dn7tj1tvgsdmsju1dcck3tmbqaca7f4o.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.knowpedia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

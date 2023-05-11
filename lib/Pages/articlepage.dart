@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../Components/colors.dart';
 
 class ArticlePage extends StatelessWidget {
+  static const routeName = '/article-detail';
   String title;
   String image;
   String author;
