@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Pages/aboutus.dart';
-import 'package:knowpedia/Pages/login.dart';
 import 'package:knowpedia/Components/colors.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/authentication.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<Authentication>(context);
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
@@ -92,12 +95,15 @@ class Setting extends StatelessWidget {
                         ),
                         TextButton(
                           onPressed: () {
-                            Navigator.of(context)
-                                .popUntil((route) => route.isFirst);
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => LoginScreen()));
+                            authService.signOut();
+                            Navigator.popUntil(
+                                context, ModalRoute.withName("/"));
+                            // Navigator.of(context)
+                            //     .popUntil((route) => route.isFirst);
+                            // Navigator.pushReplacement(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => LoginScreen()));
                           },
                           child: const Text('Log Out',
                               style: TextStyle(fontFamily: 'Montserrat')),

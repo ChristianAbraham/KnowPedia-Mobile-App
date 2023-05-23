@@ -1,12 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/navbar.dart';
 import 'package:knowpedia/Components/colors.dart';
+import 'package:provider/provider.dart';
+import '../providers/authentication.dart';
 
 class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+  SignUp({super.key});
+  final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  final emailController = TextEditingController();
+  final firstNameController = TextEditingController();
+  final lastNameController = TextEditingController();
+
+  bool confirmPassword() {
+    if (passwordController == confirmPasswordController) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<Authentication>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(children: [
@@ -19,15 +35,16 @@ class SignUp extends StatelessWidget {
           ),
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.only(top: 255, left: 20, right: 20),
+              Padding(
+                padding: const EdgeInsets.only(top: 255, left: 20, right: 20),
                 child: TextField(
-                  style: TextStyle(
+                  controller: firstNameController,
+                  style: const TextStyle(
                     color: warnaUngu,
                     fontFamily: 'Montserrat',
                     fontSize: 15,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       borderSide: BorderSide(color: warnaOren),
@@ -46,15 +63,16 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 25, left: 20, right: 20),
+              Padding(
+                padding: const EdgeInsets.only(top: 25, left: 20, right: 20),
                 child: TextField(
-                  style: TextStyle(
+                  controller: lastNameController,
+                  style: const TextStyle(
                     color: warnaUngu,
                     fontFamily: 'Montserrat',
                     fontSize: 15,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       borderSide: BorderSide(color: warnaOren),
@@ -73,15 +91,16 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 25, left: 20, right: 20),
+              Padding(
+                padding: const EdgeInsets.only(top: 25, left: 20, right: 20),
                 child: TextField(
-                  style: TextStyle(
+                  controller: emailController,
+                  style: const TextStyle(
                     color: warnaUngu,
                     fontFamily: 'Montserrat',
                     fontSize: 15,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       borderSide: BorderSide(color: warnaOren),
@@ -100,16 +119,17 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 25, left: 20, right: 20),
+              Padding(
+                padding: const EdgeInsets.only(top: 25, left: 20, right: 20),
                 child: TextField(
+                  controller: passwordController,
                   obscureText: true,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: warnaUngu,
                     fontFamily: 'Montserrat',
                     fontSize: 15,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       borderSide: BorderSide(color: warnaOren),
@@ -128,16 +148,17 @@ class SignUp extends StatelessWidget {
                   ),
                 ),
               ),
-              const Padding(
-                padding: EdgeInsets.only(top: 25, left: 20, right: 20),
+              Padding(
+                padding: const EdgeInsets.only(top: 25, left: 20, right: 20),
                 child: TextField(
+                  controller: confirmPasswordController,
                   obscureText: true,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: warnaOren,
                     fontFamily: 'Montserrat',
                     fontSize: 15,
                   ),
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                       borderSide: BorderSide(color: warnaOren),
@@ -157,10 +178,14 @@ class SignUp extends StatelessWidget {
                 ),
               ),
               InkWell(
-                onTap: () {
-                  // push to navbar
-                  Navigator.pushReplacement(context,
-                      MaterialPageRoute(builder: (context) => Navbar(0)));
+                onTap: () async {
+                  await authService.registerWithEmailAndPassword(
+                      emailController.text,
+                      passwordController.text,
+                      firstNameController.text,
+                      lastNameController.text);
+                  if (confirmPassword() == true) {}
+                  Navigator.pushNamed(context, '/');
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(top: 50, left: 20, right: 20),

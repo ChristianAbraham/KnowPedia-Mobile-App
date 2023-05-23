@@ -1,17 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:knowpedia/Pages/signup.dart';
 import 'package:knowpedia/navbar.dart';
 import 'package:knowpedia/Components/colors.dart';
+import 'package:provider/provider.dart';
 
-void main(List<String> args) {
-  runApp(const LoginScreen());
+import '../providers/authentication.dart';
+
+class LoginScreen extends StatefulWidget {
+  LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class _LoginScreenState extends State<LoginScreen> {
+  final passwordController = TextEditingController();
+  final emailController = TextEditingController();
+  bool _isHidden = true;
+
+  void _toggleVisibility() {
+    setState(() {
+      _isHidden = !_isHidden;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
+    final authService = Provider.of<Authentication>(context);
     return Scaffold(
       body: SingleChildScrollView(
         child: Stack(
@@ -26,15 +42,17 @@ class LoginScreen extends StatelessWidget {
             Center(
               child: Column(
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 500, left: 20, right: 20),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 500, left: 20, right: 20),
                     child: TextField(
-                      style: TextStyle(
+                      controller: emailController,
+                      style: const TextStyle(
                         color: warnaUngu,
                         fontFamily: 'Montserrat',
                         fontSize: 15,
                       ),
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: warnaOren),
@@ -53,30 +71,42 @@ class LoginScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 25, left: 20, right: 20),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 25, left: 20, right: 20),
                     child: TextField(
-                      obscureText: true,
-                      style: TextStyle(
+                      controller: passwordController,
+                      obscureText: _isHidden,
+                      style: const TextStyle(
                         color: warnaUngu,
                         fontFamily: 'Montserrat',
                         fontSize: 15,
                       ),
                       decoration: InputDecoration(
-                        border: OutlineInputBorder(
+                        border: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: warnaUngu),
                         ),
                         hintText: "Password",
-                        hintStyle: TextStyle(
+                        hintStyle: const TextStyle(
                             color: warnaUngu,
                             fontFamily: "Montserrat",
                             fontSize: 15),
-                        contentPadding: EdgeInsets.fromLTRB(20, 22, 0, 22),
-                        suffixIcon: Icon(
-                          Icons.key_rounded,
-                          color: warnaUngu,
-                          size: 18,
+                        contentPadding:
+                            const EdgeInsets.fromLTRB(20, 22, 0, 22),
+                        suffixIcon: InkWell(
+                          onTap: () {
+                            setState(() {
+                              _toggleVisibility();
+                            });
+                          },
+                          child: Icon(
+                            _isHidden
+                                ? Icons.visibility_off_rounded
+                                : Icons.visibility_rounded,
+                            color: warnaUngu,
+                            size: 18,
+                          ),
                         ),
                       ),
                     ),
@@ -128,11 +158,16 @@ class LoginScreen extends StatelessWidget {
                           ),
                         ),
                         InkWell(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => Navbar(0)));
+                          onTap: () async {
+                            await authService.signInWithEmailAndPassword(
+                                emailController.text, passwordController.text);
+                            authService.tempData();
+                            authService.getUserDetail();
+                            // LogIn;
+                            // Navigator.pushReplacement(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => Navbar(0)));
                           },
                           child: Container(
                             height: 60,

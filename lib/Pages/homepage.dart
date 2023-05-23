@@ -1,20 +1,36 @@
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:knowpedia/navbar.dart';
 import 'package:provider/provider.dart';
+import '../providers/authentication.dart';
 import '../widgets/dailyinsight.dart';
 import '../widgets/mainarticle.dart';
 import '../providers/articles.dart';
 
-class HomePage extends StatelessWidget {
-  final faker = Faker();
-
+class HomePage extends StatefulWidget {
   HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool isInit = true;
+  @override
+  void didChangeDependencies() {
+    if (isInit) {
+      Provider.of<Articles>(context, listen: false).dataMaster();
+      // Provider.of<Articles>(context, listen: false).updateToken(
+      //     Provider.of<Authentication>(context, listen: false).tempData());
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Articles>(context);
+    final userinfo = Provider.of<Authentication>(context);
     final dataMain = data.articleItem;
 
     return Scaffold(
@@ -32,8 +48,8 @@ class HomePage extends StatelessWidget {
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
-                    Padding(
+                  children: [
+                    const Padding(
                       padding: EdgeInsets.fromLTRB(0, 0, 0, 3),
                       child: Text("Hello!",
                           style: TextStyle(
@@ -42,8 +58,8 @@ class HomePage extends StatelessWidget {
                               fontFamily: "Montserrat",
                               fontWeight: FontWeight.w700)),
                     ),
-                    Text("Christian",
-                        style: TextStyle(
+                    Text("Chris", //userinfo.detail[0].firstName,
+                        style: const TextStyle(
                             color: Colors.orange,
                             fontSize: 32,
                             fontFamily: "Montserrat",
@@ -89,7 +105,8 @@ class HomePage extends StatelessWidget {
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context, index) => ChangeNotifierProvider.value(
-                      value: dataMain[index], child: MainArticle()),
+                      value: dataMain.reversed.toList()[index],
+                      child: MainArticle()),
                   itemCount: 4,
                 ),
               ),
@@ -106,7 +123,7 @@ class HomePage extends StatelessWidget {
                   shrinkWrap: true,
                   physics: const ScrollPhysics(),
                   itemBuilder: (context, index) => ChangeNotifierProvider.value(
-                      value: dataMain[index + 4], child: DailyInsight()),
+                      value: dataMain[index], child: DailyInsight()),
                   itemCount: 6),
             ],
           ),

@@ -1,159 +1,65 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/models/article.dart';
+import 'package:knowpedia/Pages/createArticle.dart';
 import '../Components/colors.dart';
-import '../providers/articles.dart';
+import 'editPage.dart';
 
 class Write extends StatelessWidget {
-  final TextEditingController titleController = TextEditingController();
-  final TextEditingController descriptionController = TextEditingController();
-  final TextEditingController imageController = TextEditingController();
-  final TextEditingController tagController = TextEditingController();
-  final TextEditingController contentController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          elevation: 0,
-          toolbarHeight: 75,
-          title: const Text('Write',
-              style: TextStyle(
-                  color: warnaUngu,
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: "Montserrat")),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: TextField(
-                    maxLines: null,
-                    style: const TextStyle(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        elevation: 0,
+        toolbarHeight: 75,
+        title: const Text('Write',
+            style: TextStyle(
+                color: warnaUngu,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Montserrat")),
+      ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          InkWell(
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => CreateArticle()));
+            },
+            child: const ListTile(
+              leading: Icon(
+                Icons.add_box_rounded,
+                color: warnaUngu,
+              ),
+              title: Text("Write A new Article",
+                  style: TextStyle(
                       color: warnaUngu,
-                      fontFamily: 'Montserrat',
-                      fontSize: 15,
-                      height: 1.5,
-                    ),
-                    controller: titleController,
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      )),
-                      labelText: 'Title',
-                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: TextField(
-                    maxLines: null,
-                    style: const TextStyle(
-                      color: warnaUngu,
-                      fontFamily: 'Montserrat',
-                      fontSize: 15,
-                      height: 1.5,
-                    ),
-                    controller: descriptionController,
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      )),
-                      labelText: 'Description',
-                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: TextField(
-                    style: const TextStyle(
-                      color: warnaUngu,
-                      fontFamily: 'Montserrat',
-                      fontSize: 15,
-                      height: 1.5,
-                    ),
-                    controller: imageController,
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      )),
-                      labelText: 'Image URL',
-                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: TextField(
-                    maxLines: 1,
-                    style: const TextStyle(
-                      color: warnaUngu,
-                      fontFamily: 'Montserrat',
-                      fontSize: 15,
-                      height: 1.5,
-                    ),
-                    controller: tagController,
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      )),
-                      labelText: 'Category',
-                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
-                  child: TextField(
-                    maxLines: null,
-                    style: const TextStyle(
-                      color: warnaUngu,
-                      fontFamily: 'Montserrat',
-                      fontSize: 15,
-                      height: 1.5,
-                    ),
-                    controller: contentController,
-                    decoration: const InputDecoration(
-                      border: UnderlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      )),
-                      labelText: 'Content',
-                      contentPadding: EdgeInsets.fromLTRB(10, 0, 0, 10),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: FloatingActionButton(
-                      backgroundColor: warnaUngu,
-                      elevation: 2,
-                      onPressed: () {
-                        Articles().addArticle(
-                            titleController.text,
-                            descriptionController.text,
-                            imageController.text,
-                            "Christian",
-                            tagController.text,
-                            contentController.text);
-                      },
-                      child: const Icon(Icons.add_box_rounded)),
-                )
-              ],
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Montserrat")),
             ),
           ),
-        ));
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => EditPage()));
+            },
+            child: const ListTile(
+              leading: Icon(
+                Icons.edit,
+                color: warnaUngu,
+              ),
+              title: Text("Edit Your Article",
+                  style: TextStyle(
+                      color: warnaUngu,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: "Montserrat")),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

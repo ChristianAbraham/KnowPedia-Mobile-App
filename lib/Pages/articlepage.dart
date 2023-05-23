@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/providers/favoriteservice.dart';
+import 'package:provider/provider.dart';
 import '../Components/colors.dart';
 
 class ArticlePage extends StatelessWidget {
   static const routeName = '/article-detail';
+  String id;
+  String uid;
+  String description;
   String title;
   String image;
   String author;
   String category;
   String content;
 
-  ArticlePage(this.title, this.image, this.author, this.category, this.content,
+  ArticlePage(this.id, this.uid, this.description, this.title, this.image,
+      this.author, this.category, this.content,
       {super.key});
 
   @override
@@ -32,7 +38,7 @@ class ArticlePage extends StatelessWidget {
                     fit: BoxFit.cover,
                   ))),
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.fromLTRB(12, 12, 0, 12),
             child: Text(
               title,
               style: const TextStyle(
@@ -68,29 +74,29 @@ class ArticlePage extends StatelessWidget {
                               fontWeight: FontWeight.w500,
                               fontFamily: "Montserrat")),
                     ),
-                    const Padding(
-                      padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                      child: Text("• 2.5k View",
-                          style: TextStyle(
-                              color: warnaOren,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w500,
-                              fontFamily: "Montserrat")),
-                    ),
                   ],
                 ),
                 Padding(
                     padding: const EdgeInsets.fromLTRB(0, 2, 8, 0),
                     child: InkWell(
-                      onTap: () {
-                        print("Added to Favorite");
-                      },
-                      child: const Icon(
-                        Icons.favorite_border,
-                        color: warnaOren,
-                        size: 30,
-                      ),
-                    ))
+                        onTap: () {
+                          Provider.of<Favorites>(context, listen: false)
+                              .addFavs(id, uid, title, description, image,
+                                  author, category, content);
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: warnaOren),
+                          //color: warnaOren,
+                          child: const Text("Add to Favorite",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 15,
+                                  fontWeight: FontWeight.w500,
+                                  fontFamily: "Montserrat")),
+                        )))
               ],
             ),
           ),

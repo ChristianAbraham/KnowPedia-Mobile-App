@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Pages/settings.dart';
 import 'package:knowpedia/Components/colors.dart';
+import 'package:knowpedia/providers/authentication.dart';
 import 'package:provider/provider.dart';
 import '../providers/articles.dart';
 import '../widgets/dailyInsight.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   const Profile({super.key});
+
+  @override
+  State<Profile> createState() => _ProfileState();
+}
+
+class _ProfileState extends State<Profile> {
+  bool isInit = true;
+  @override
+  void didChangeDependencies() {
+    if (isInit) {
+      Provider.of<Articles>(context, listen: false).profileData();
+      // Provider.of<Articles>(context, listen: false).updateToken(
+      //     Provider.of<Authentication>(context, listen: false).tempData());
+      ;
+    }
+    isInit = false;
+    super.didChangeDependencies();
+  }
 
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Articles>(context);
-    final dataMain = data.articleItem;
+    final dataMain = data.userArticle;
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -104,7 +123,7 @@ class Profile extends StatelessWidget {
                 const Padding(
                   padding: EdgeInsets.only(bottom: 15.0),
                   child: Text(
-                    "Latest Articles",
+                    "Your Articles",
                     textAlign: TextAlign.left,
                     style: TextStyle(
                         fontFamily: "Montserrat",
@@ -112,13 +131,25 @@ class Profile extends StatelessWidget {
                         fontSize: 20),
                   ),
                 ),
-                ListView.builder(
-                  shrinkWrap: true,
-                  physics: const ScrollPhysics(),
-                  itemBuilder: (context, index) => ChangeNotifierProvider.value(
-                      value: dataMain[index + 3], child: DailyInsight()),
-                  itemCount: 4,
-                ),
+                (dataMain.isEmpty)
+                    ? const Center(
+                        child: Text(
+                          "You haven't post any article yet",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontFamily: "Montserrat",
+                              fontWeight: FontWeight.w300,
+                              fontSize: 15),
+                        ),
+                      )
+                    : ListView.builder(
+                        shrinkWrap: true,
+                        physics: const ScrollPhysics(),
+                        itemBuilder: (context, index) =>
+                            ChangeNotifierProvider.value(
+                                value: dataMain[index], child: DailyInsight()),
+                        itemCount: dataMain.length,
+                      ),
               ],
             ),
           ),
