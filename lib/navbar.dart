@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:knowpedia/Pages/homepage.dart';
-import 'Pages/favorite.dart';
+import 'Pages/likepage.dart';
 import 'Pages/explore.dart';
 import 'Pages/write.dart';
 import 'Pages/profile.dart';
