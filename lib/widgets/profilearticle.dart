@@ -16,8 +16,15 @@ class ProfileArticle extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ArticlePage(data.title, data.image,
-                    data.author, data.category, data.content)));
+                builder: (context) => ArticlePage(
+                    data.id,
+                    data.uid,
+                    data.description,
+                    data.title,
+                    data.image,
+                    data.author,
+                    data.category,
+                    data.content)));
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 15.0),

@@ -16,13 +16,20 @@ class MainArticle extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ArticlePage(data.title, data.image,
-                    data.author, data.category, data.content)));
+                builder: (context) => ArticlePage(
+                    data.id,
+                    data.uid,
+                    data.description,
+                    data.title,
+                    data.image,
+                    data.author,
+                    data.category,
+                    data.content)));
       },
       child: Padding(
         padding: const EdgeInsets.only(right: 35),
         child: Container(
-          width: 280,
+          width: 300,
           height: 200,
           color: Colors.transparent,
           child: Column(
@@ -33,7 +40,7 @@ class MainArticle extends StatelessWidget {
                 borderRadius: BorderRadius.circular(15),
                 child: Image(
                   image: NetworkImage(data.image),
-                  width: 280,
+                  width: 300,
                   height: 130,
                   fit: BoxFit.cover,
                 ),
@@ -92,12 +99,12 @@ class MainArticle extends StatelessWidget {
                           ],
                         ),
                       ]),
-                  IconButton(
-                    splashRadius: 10,
-                    onPressed: () {},
-                    icon: const Icon(Icons.favorite_border_rounded),
-                    iconSize: 20,
-                  )
+                  // IconButton(
+                  //   splashRadius: 10,
+                  //   onPressed: () {},
+                  //   icon: const Icon(Icons.favorite_border_rounded),
+                  //   iconSize: 20,
+                  // )
                 ],
               )
             ],

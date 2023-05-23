@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Components/colors.dart';
@@ -10,14 +11,25 @@ class DailyInsight extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Article>(context);
-
+    // CachedNetworkImage(
+    //       imageUrl: data.image,
+    //       placeholder: (context, url) => CircularProgressIndicator(),
+    //       errorWidget: (context, url, error) => Icon(Icons.error),
+    //     );
     return InkWell(
       onTap: () {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => ArticlePage(data.title, data.image,
-                    data.author, data.category, data.content)));
+                builder: (context) => ArticlePage(
+                    data.id,
+                    data.uid,
+                    data.description,
+                    data.title,
+                    data.image,
+                    data.author,
+                    data.category,
+                    data.content)));
       },
       child: Padding(
         padding: const EdgeInsets.only(bottom: 20, top: 5),
