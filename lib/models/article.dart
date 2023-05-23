@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Article with ChangeNotifier {
   String id;
+  String uid;
   String title;
   String description;
   String image;
@@ -11,6 +12,7 @@ class Article with ChangeNotifier {
 
   Article({
     required this.id,
+    required this.uid,
     required this.title,
     required this.description,
     required this.image,
