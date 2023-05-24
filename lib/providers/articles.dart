@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'package:faker/faker.dart';
 import 'package:flutter/material.dart';
 import '../models/article.dart';
 import 'package:http/http.dart' as http;

@@ -101,7 +101,7 @@ class LikedArticle extends StatelessWidget {
                           children: [
                             Padding(
                               padding: const EdgeInsets.only(left: 0),
-                              child: Text("• ${category}",
+                              child: Text("• $category",
                                   style: const TextStyle(
                                       color: warnaOren,
                                       fontSize: 10,
@@ -110,7 +110,7 @@ class LikedArticle extends StatelessWidget {
                             ),
                             Padding(
                               padding: const EdgeInsets.only(left: 5),
-                              child: Text("• By ${author}",
+                              child: Text("• By $author",
                                   style: const TextStyle(
                                       color: warnaOren,
                                       fontSize: 10,
