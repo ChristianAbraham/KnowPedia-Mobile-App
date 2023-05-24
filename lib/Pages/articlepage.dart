@@ -5,16 +5,16 @@ import '../Components/colors.dart';
 
 class ArticlePage extends StatelessWidget {
   static const routeName = '/article-detail';
-  String id;
-  String uid;
-  String description;
-  String title;
-  String image;
-  String author;
-  String category;
-  String content;
+  final String id;
+  final String uid;
+  final String description;
+  final String title;
+  final String image;
+  final String author;
+  final String category;
+  final String content;
 
-  ArticlePage(this.id, this.uid, this.description, this.title, this.image,
+  const ArticlePage(this.id, this.uid, this.description, this.title, this.image,
       this.author, this.category, this.content,
       {super.key});
 

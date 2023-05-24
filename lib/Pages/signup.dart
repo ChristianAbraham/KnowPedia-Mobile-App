@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/navbar.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
 import '../providers/authentication.dart';

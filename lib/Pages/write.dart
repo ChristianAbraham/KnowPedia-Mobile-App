@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:knowpedia/Pages/createArticle.dart';
+import 'package:knowpedia/Pages/create_article.dart';
 import '../Components/colors.dart';
-import 'editPage.dart';
+import 'edit_list.dart';
 
 class Write extends StatelessWidget {
+  const Write({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
