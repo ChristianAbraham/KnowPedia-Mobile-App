@@ -4,6 +4,7 @@ import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/authentication.dart';
+import 'edit_profile.dart';
 
 class Setting extends StatelessWidget {
   const Setting({super.key});
@@ -39,7 +40,10 @@ class Setting extends StatelessWidget {
                         color: warnaUngu)),
                 trailing: Icon(Icons.arrow_forward_ios, color: warnaUngu),
               ),
-              onTap: () {}),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => EditProfile()));
+              }),
           InkWell(
               child: const ListTile(
                 leading: Icon(Icons.notifications, color: warnaUngu),
