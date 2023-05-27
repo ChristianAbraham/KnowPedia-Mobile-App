@@ -108,7 +108,7 @@ class _EditPageState extends State<EditPage> {
                                                         title: const Text(
                                                             'Delete Article'),
                                                         content: Text(
-                                                          'Are you sure you want delete ${data.userArticle[index].title}?}',
+                                                          'Are you sure you want delete ${data.userArticle[index].title}?',
                                                           style: const TextStyle(
                                                               fontFamily:
                                                                   'Montserrat'),
