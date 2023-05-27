@@ -4,7 +4,7 @@ import 'package:knowpedia/Components/colors.dart';
 import 'package:knowpedia/providers/authentication.dart';
 import 'package:provider/provider.dart';
 import '../providers/articles.dart';
-import '../widgets/dailyInsight.dart';
+import '../widgets/profilearticle_builder.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -19,9 +19,9 @@ class _ProfileState extends State<Profile> {
   void didChangeDependencies() {
     if (isInit) {
       Provider.of<Articles>(context, listen: false).profileData();
+      //Provider.of<Authentication>(context, listen: false).getUserDetail();
       // Provider.of<Articles>(context, listen: false).updateToken(
       //     Provider.of<Authentication>(context, listen: false).tempData());
-      ;
     }
     isInit = false;
     super.didChangeDependencies();
@@ -30,6 +30,7 @@ class _ProfileState extends State<Profile> {
   @override
   Widget build(BuildContext context) {
     final data = Provider.of<Articles>(context);
+    final user = Provider.of<Authentication>(context);
     final dataMain = data.userArticle;
 
     return Scaffold(
@@ -73,34 +74,33 @@ class _ProfileState extends State<Profile> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        const CircleAvatar(
+                        CircleAvatar(
                           radius: 50,
-                          backgroundImage:
-                              NetworkImage('https://picsum.photos/100/100'),
+                          backgroundImage: NetworkImage(user.userPhoto ??
+                              'https://picsum.photos/100/100'),
                         ),
                         Padding(
                           padding: const EdgeInsets.fromLTRB(20, 0, 0, 5),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.center,
-                            children: const [
-                              Text('Christian Abraham',
-                                  style: TextStyle(
+                            children: [
+                              Text(user.dispName ?? "No Name",
+                                  style: const TextStyle(
                                     color: warnaUngu,
                                     fontFamily: "Montserrat",
                                     fontWeight: FontWeight.bold,
                                     fontSize: 20,
                                   )),
                               Padding(
-                                padding: EdgeInsets.only(top: 4),
+                                padding: const EdgeInsets.only(top: 4),
                                 child: SizedBox(
                                   width: 230,
-                                  child: Text(
-                                      'Ya ini adalah bio saya, saya seorang yang bisa ngoding flutter',
+                                  child: Text(user.email ?? "No Email",
                                       textAlign: TextAlign.left,
                                       overflow: TextOverflow.clip,
                                       maxLines: 2,
-                                      style: TextStyle(
+                                      style: const TextStyle(
                                         color: warnaUngu,
                                         fontFamily: "Montserrat",
                                         fontWeight: FontWeight.w300,
@@ -142,14 +142,7 @@ class _ProfileState extends State<Profile> {
                               fontSize: 15),
                         ),
                       )
-                    : ListView.builder(
-                        shrinkWrap: true,
-                        physics: const ScrollPhysics(),
-                        itemBuilder: (context, index) =>
-                            ChangeNotifierProvider.value(
-                                value: dataMain[index], child: DailyInsight()),
-                        itemCount: dataMain.length,
-                      ),
+                    : const ProfileArticleBuilder()
               ],
             ),
           ),
