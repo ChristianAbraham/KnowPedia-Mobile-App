@@ -1,14 +1,14 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:knowpedia/Pages/signup.dart';
-import 'package:knowpedia/navbar.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
 
 import '../providers/authentication.dart';
 
 class LoginScreen extends StatefulWidget {
-  LoginScreen({super.key});
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -159,15 +159,42 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         InkWell(
                           onTap: () async {
-                            await authService.signInWithEmailAndPassword(
-                                emailController.text, passwordController.text);
-                            authService.tempData();
-                            authService.getUserDetail();
-                            // LogIn;
-                            // Navigator.pushReplacement(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => Navbar(0)));
+                            try {
+                              await authService
+                                  .signInWithEmailAndPassword(
+                                      emailController.text,
+                                      passwordController.text)
+                                  .then((value) => authService.tempData());
+                            } on FirebaseAuthException catch (err) {
+                              String? errMessage = err.message;
+
+                              showDialog(
+                                context: context,
+                                builder: (context) {
+                                  return AlertDialog(
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                    ),
+                                    title: const Text('Login Failed'),
+                                    content: Text(
+                                      errMessage!,
+                                      style: const TextStyle(
+                                          fontFamily: 'Montserrat'),
+                                    ),
+                                    actions: [
+                                      TextButton(
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        },
+                                        child: const Text('Okay',
+                                            style: TextStyle(
+                                                fontFamily: 'Montserrat')),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              );
+                            }
                           },
                           child: Container(
                             height: 60,
