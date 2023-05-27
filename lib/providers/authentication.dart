@@ -1,9 +1,7 @@
-import 'dart:convert';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
 import 'package:knowpedia/models/user.dart';
-import 'package:http/http.dart' as http;
 import 'package:knowpedia/models/userdetails.dart';
 
 class Authentication with ChangeNotifier {
@@ -11,7 +9,9 @@ class Authentication with ChangeNotifier {
   String tempToken = "";
   String token = "";
   String uid = "";
-  String firstNameData = "";
+  var dispName;
+  var userPhoto;
+  var email;
 
   List<UserDetails> detail = [];
 
@@ -44,19 +44,16 @@ class Authentication with ChangeNotifier {
 
   Future<UserAttributes?> signInWithEmailAndPassword(
       String email, String password) async {
-    try {
-      final credential = await _auth.signInWithEmailAndPassword(
-          email: email, password: password);
-      //final auth.User? user = credential.user;
-      tempToken = await FirebaseAuth.instance.currentUser!.getIdToken(true);
-      uid = credential.user!.uid;
-      notifyListeners();
+    final credential = await _auth.signInWithEmailAndPassword(
+        email: email, password: password);
+    //final auth.User? user = credential.user;
+    tempToken = await FirebaseAuth.instance.currentUser!.getIdToken(true);
+    //FirebaseAuth.instance.currentUser!.
+    uid = credential.user!.uid;
+    getUserDetail();
+    notifyListeners();
 
-      return _userFromFirebase(credential.user);
-    } catch (e) {
-      print(e.toString());
-      return null;
-    }
+    return _userFromFirebase(credential.user);
   }
 
   Future<UserAttributes?> registerWithEmailAndPassword(
@@ -68,7 +65,6 @@ class Authentication with ChangeNotifier {
 
       tempToken = await FirebaseAuth.instance.currentUser!.getIdToken(true);
       uid = credential.user!.uid;
-      addUserDetail(firstName, lastName, email, uid);
       notifyListeners();
 
       return _userFromFirebase(credential.user);
@@ -78,37 +74,39 @@ class Authentication with ChangeNotifier {
     }
   }
 
-  Future addUserDetail(
-      String firstName, String lastName, String email, String uid) async {
-    Uri url = Uri.parse(
-        "https://knowpedia-df445-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?auth=$token");
-
-    http.post(
-      url,
-      body: json.encode(
-        {
-          "uid": uid,
-          "email": email,
-          "firstName": firstName,
-          "lastName": lastName,
-        },
-      ),
-    );
+  Future<UserAttributes?> updateUserData(
+      String displayName, String photoURL) async {
+    await FirebaseAuth.instance.currentUser!.updateDisplayName(displayName);
+    await FirebaseAuth.instance.currentUser!.updatePhotoURL(photoURL);
+    await FirebaseAuth.instance.currentUser!.reload();
+    getUserDetail();
+    notifyListeners();
+    return null;
   }
 
-  Future<String> getUserDetail() async {
-    Uri url = Uri.parse(
-        'https://knowpedia-df445-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?auth=$token&orderBy="uid"&equalTo="$uid"');
+  // Future addUserDetail(
+  //     String firstName, String lastName, String email, String uid) async {
+  //   Uri url = Uri.parse(
+  //       "https://knowpedia-df445-default-rtdb.asia-southeast1.firebasedatabase.app/users.json?auth=$token");
 
-    var hasilGetData = await http.get(url);
+  //   http.post(
+  //     url,
+  //     body: json.encode(
+  //       {
+  //         "uid": uid,
+  //         "email": email,
+  //         "firstName": firstName,
+  //         "lastName": lastName,
+  //       },
+  //     ),
+  //   );
+  // }
 
-    var dataResponse = json.decode(hasilGetData.body) as Map<String, dynamic>?;
-
-    print(dataResponse);
-
-    firstNameData = dataResponse!["firstName"];
+  Future<void> getUserDetail() async {
+    dispName = FirebaseAuth.instance.currentUser!.displayName;
+    userPhoto = FirebaseAuth.instance.currentUser!.photoURL;
+    email = FirebaseAuth.instance.currentUser!.email;
     notifyListeners();
-    return dataResponse["firstName"].toString();
   }
 
   Future<void> signOut() async {
