@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:knowpedia/providers/authentication.dart';
 import 'package:provider/provider.dart';
 import '../Components/colors.dart';
 import '../providers/articles.dart';
@@ -117,7 +118,7 @@ class CreateArticle extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: TextField(
                     maxLines: null,
                     style: const TextStyle(
@@ -148,7 +149,9 @@ class CreateArticle extends StatelessWidget {
                                 titleController.text,
                                 descriptionController.text,
                                 imageController.text,
-                                "Christian",
+                                Provider.of<Authentication>(context,
+                                        listen: false)
+                                    .dispName,
                                 tagController.text,
                                 contentController.text);
                         StatusAlert.show(
