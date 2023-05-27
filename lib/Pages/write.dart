@@ -44,8 +44,8 @@ class Write extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                  context, MaterialPageRoute(builder: (context) => EditPage()));
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const EditPage()));
             },
             child: const ListTile(
               leading: Icon(
