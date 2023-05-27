@@ -184,7 +184,7 @@ class SignUp extends StatelessWidget {
                       firstNameController.text,
                       lastNameController.text);
                   if (confirmPassword() == true) {}
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamed(context, '/continueregister');
                 },
                 child: Padding(
                   padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
