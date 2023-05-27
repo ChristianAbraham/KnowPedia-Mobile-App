@@ -126,7 +126,7 @@ class EditArticle extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsets.fromLTRB(0, 0, 0, 10),
+                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 10),
                   child: TextField(
                     maxLines: null,
                     style: const TextStyle(
