@@ -38,7 +38,15 @@ class _FavoriteState extends State<Favorite> {
           searchBar(),
           Flexible(
             child: (dataMain.isEmpty)
-                ? const Center(child: Text("No Data"))
+                ? const Center(
+                    child: Text(
+                    "You haven't liked any article yet",
+                    style: TextStyle(
+                        fontFamily: "Montserrat",
+                        fontWeight: FontWeight.w300,
+                        fontSize: 15),
+                    textAlign: TextAlign.center,
+                  ))
                 : ListView.builder(
                     shrinkWrap: true,
                     physics: const ScrollPhysics(),
