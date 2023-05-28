@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Components/colors.dart';
+import 'package:knowpedia/widgets/explore_builder.dart';
+import '../widgets/explorewidget.dart';
 
 class Explore extends StatelessWidget {
   const Explore({super.key});
@@ -166,83 +168,9 @@ class Explore extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const ExploreArticle(),
-                  const ExploreArticle(),
-                  const ExploreArticle(),
+                  const ExploreBuilder()
                 ],
               ),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class ExploreArticle extends StatelessWidget {
-  const ExploreArticle({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 15, bottom: 0),
-      child: SizedBox(
-        width: 306,
-        height: 200,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 149,
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(15),
-                child: const Image(
-                    image: NetworkImage("https://picsum.photos/500/200")),
-              ),
-            ),
-            const Padding(
-              padding: EdgeInsets.only(top: 7, bottom: 5),
-              child: Text("Lorem Ipsum Judul Waw",
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                      color: warnaUngu,
-                      fontSize: 14,
-                      fontWeight: FontWeight.w700,
-                      fontFamily: "Montserrat")),
-            ),
-            Row(
-              children: const [
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• Science",
-                      style: TextStyle(
-                          color: warnaOren,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Montserrat")),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• By Hana",
-                      style: TextStyle(
-                          color: warnaOren,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Montserrat")),
-                ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(0, 2, 8, 0),
-                  child: Text("• 2.5k View",
-                      style: TextStyle(
-                          color: warnaOren,
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: "Montserrat")),
-                ),
-              ],
             )
           ],
         ),
