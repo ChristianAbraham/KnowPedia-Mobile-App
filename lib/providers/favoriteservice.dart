@@ -16,7 +16,6 @@ class Favorites with ChangeNotifier {
           storyId,
           () => FavArt(storyId, uid, title, description, image, writer,
               category, content));
-
       notifyListeners();
     }
   }

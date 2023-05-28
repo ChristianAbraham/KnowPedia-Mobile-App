@@ -17,7 +17,6 @@ class Articles with ChangeNotifier {
   //   token = saveToken;
   //   return token!;
   // }
-
   List<Article> _articleItem = [];
 
   List<Article>? _userArticle = [];
