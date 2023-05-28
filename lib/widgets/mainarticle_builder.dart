@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
 import '../providers/articles.dart';
-import '../widgets/mainarticle.dart';
+import 'mainarticlewidget.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
 class MainBuilder extends StatefulWidget {
