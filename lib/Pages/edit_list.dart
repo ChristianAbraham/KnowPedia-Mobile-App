@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:knowpedia/Pages/edit_article.dart';
@@ -131,22 +132,35 @@ class _EditPageState extends State<EditPage> {
                                                                   .userArticle[
                                                                       index]
                                                                   .id);
-                                                              StatusAlert.show(
-                                                                  context,
-                                                                  duration:
-                                                                      const Duration(
-                                                                          seconds:
-                                                                              3),
-                                                                  title:
-                                                                      'Article Deleted',
-                                                                  subtitle:
-                                                                      'Your article has been deleted!',
-                                                                  configuration:
-                                                                      const IconConfiguration(
-                                                                          icon: Icons
-                                                                              .delete),
-                                                                  maxWidth:
-                                                                      260);
+                                                              Navigator.pop(
+                                                                  context);
+                                                              ScaffoldMessenger
+                                                                      .of(
+                                                                          context)
+                                                                  .showSnackBar(
+                                                                      SnackBar(
+                                                                /// need to set following properties for best effect of awesome_snackbar_content
+                                                                elevation: 0,
+                                                                behavior:
+                                                                    SnackBarBehavior
+                                                                        .floating,
+                                                                backgroundColor:
+                                                                    Colors
+                                                                        .transparent,
+                                                                content:
+                                                                    AwesomeSnackbarContent(
+                                                                  title: 'Hey!',
+                                                                  message:
+                                                                      'Your Article Has Been Deleted!',
+
+                                                                  /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                                                                  contentType:
+                                                                      ContentType
+                                                                          .warning,
+                                                                  inMaterialBanner:
+                                                                      true,
+                                                                ),
+                                                              ));
                                                             },
                                                             child: const Text(
                                                                 'Delete',
@@ -166,7 +180,7 @@ class _EditPageState extends State<EditPage> {
                                             ),
                                           ],
                                         ),
-                                        child: DailyInsight()),
+                                        child: const DailyInsight()),
                                   )),
                           itemCount: dataMain.length,
                         ),

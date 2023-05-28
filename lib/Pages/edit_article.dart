@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../Components/colors.dart';
@@ -159,6 +160,20 @@ class EditArticle extends StatelessWidget {
                             imageController.text,
                             tagController.text,
                             contentController.text);
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          /// need to set following properties for best effect of awesome_snackbar_content
+                          elevation: 0,
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Colors.transparent,
+                          content: AwesomeSnackbarContent(
+                            title: 'Great!',
+                            message: 'Your Article Has Been Edited!',
+
+                            /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                            contentType: ContentType.success,
+                            inMaterialBanner: true,
+                          ),
+                        ));
 
                         Navigator.pop(context);
                       },

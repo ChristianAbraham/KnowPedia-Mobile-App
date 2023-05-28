@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:knowpedia/providers/favoriteservice.dart';
 import 'package:provider/provider.dart';
@@ -40,7 +41,7 @@ class ArticlePage extends StatelessWidget {
                       fit: BoxFit.cover,
                     ))),
             Padding(
-              padding: const EdgeInsets.fromLTRB(12, 12, 0, 12),
+              padding: const EdgeInsets.fromLTRB(12, 12, 10, 12),
               child: Text(
                 title,
                 style: const TextStyle(
@@ -94,6 +95,20 @@ class ArticlePage extends StatelessWidget {
                       author,
                       category,
                       content);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                    /// need to set following properties for best effect of awesome_snackbar_content
+                    elevation: 0,
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.transparent,
+                    content: AwesomeSnackbarContent(
+                      title: 'Great!',
+                      message: 'This article has been added to your favorites!',
+
+                      /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                      contentType: ContentType.success,
+                      inMaterialBanner: true,
+                    ),
+                  ));
                 },
                 child: Container(
                   padding: const EdgeInsets.fromLTRB(15, 10, 15, 10),

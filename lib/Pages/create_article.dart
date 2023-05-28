@@ -1,3 +1,4 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:knowpedia/providers/authentication.dart';
 import 'package:provider/provider.dart';
@@ -154,16 +155,31 @@ class CreateArticle extends StatelessWidget {
                                     .dispName,
                                 tagController.text,
                                 contentController.text);
-                        StatusAlert.show(
-                          context,
-                          duration: const Duration(seconds: 3),
-                          title: 'Article Created',
-                          subtitle:
-                              'Yay your article has been created and uploaded!',
-                          configuration:
-                              const IconConfiguration(icon: Icons.done),
-                          maxWidth: 260,
-                        );
+                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                          /// need to set following properties for best effect of awesome_snackbar_content
+                          elevation: 0,
+                          behavior: SnackBarBehavior.floating,
+                          backgroundColor: Colors.transparent,
+                          content: AwesomeSnackbarContent(
+                            title: 'Great!',
+                            message:
+                                'Yay your article has been created and uploaded!',
+
+                            /// change contentType to ContentType.success, ContentType.warning or ContentType.help for variants
+                            contentType: ContentType.success,
+                            inMaterialBanner: true,
+                          ),
+                        ));
+                        // StatusAlert.show(
+                        //   context,
+                        //   duration: const Duration(seconds: 3),
+                        //   title: 'Article Created',
+                        //   subtitle:
+                        //       'Yay your article has been created and uploaded!',
+                        //   configuration:
+                        //       const IconConfiguration(icon: Icons.done),
+                        //   maxWidth: 260,
+                        // );
                         Navigator.pop(context);
                       },
                       child: const Icon(Icons.add_box_rounded)),
