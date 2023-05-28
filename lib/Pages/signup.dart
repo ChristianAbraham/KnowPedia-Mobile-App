@@ -34,64 +34,17 @@ class SignUp extends StatelessWidget {
           ),
           Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.only(top: 255, left: 20, right: 20),
-                child: TextField(
-                  controller: firstNameController,
-                  style: const TextStyle(
-                    color: warnaUngu,
-                    fontFamily: 'Montserrat',
-                    fontSize: 15,
-                  ),
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50)),
-                      borderSide: BorderSide(color: warnaOren),
-                    ),
-                    hintText: "First Name",
-                    hintStyle: TextStyle(
-                        color: warnaOren,
+              const Padding(
+                padding: EdgeInsets.fromLTRB(20, 350, 20, 0),
+                child: Text("Create A New Account ",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: warnaUngu,
                         fontFamily: "Montserrat",
-                        fontSize: 15),
-                    contentPadding: EdgeInsets.fromLTRB(20, 22, 0, 22),
-                    suffixIcon: Icon(
-                      Icons.person_2_rounded,
-                      color: warnaOren,
-                      size: 18,
-                    ),
-                  ),
-                ),
+                        fontSize: 25)),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 25, left: 20, right: 20),
-                child: TextField(
-                  controller: lastNameController,
-                  style: const TextStyle(
-                    color: warnaUngu,
-                    fontFamily: 'Montserrat',
-                    fontSize: 15,
-                  ),
-                  decoration: const InputDecoration(
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50)),
-                      borderSide: BorderSide(color: warnaOren),
-                    ),
-                    hintText: "Last Name",
-                    hintStyle: TextStyle(
-                        color: warnaOren,
-                        fontFamily: "Montserrat",
-                        fontSize: 15),
-                    contentPadding: EdgeInsets.fromLTRB(20, 22, 0, 22),
-                    suffixIcon: Icon(
-                      Icons.person_2_rounded,
-                      color: warnaOren,
-                      size: 18,
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 25, left: 20, right: 20),
+                padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
                 child: TextField(
                   controller: emailController,
                   style: const TextStyle(
@@ -131,17 +84,17 @@ class SignUp extends StatelessWidget {
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
-                      borderSide: BorderSide(color: warnaOren),
+                      borderSide: BorderSide(color: warnaUngu),
                     ),
                     hintText: "Password",
                     hintStyle: TextStyle(
-                        color: warnaOren,
+                        color: warnaUngu,
                         fontFamily: "Montserrat",
                         fontSize: 15),
                     contentPadding: EdgeInsets.fromLTRB(20, 22, 0, 22),
                     suffixIcon: Icon(
-                      Icons.key_rounded,
-                      color: warnaOren,
+                      Icons.lock_rounded,
+                      color: warnaUngu,
                       size: 18,
                     ),
                   ),
@@ -153,24 +106,24 @@ class SignUp extends StatelessWidget {
                   controller: confirmPasswordController,
                   obscureText: true,
                   style: const TextStyle(
-                    color: warnaOren,
+                    color: warnaUngu,
                     fontFamily: 'Montserrat',
                     fontSize: 15,
                   ),
                   decoration: const InputDecoration(
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50)),
-                      borderSide: BorderSide(color: warnaOren),
+                      borderSide: BorderSide(color: warnaUngu),
                     ),
                     hintText: "Confirm Password",
                     hintStyle: TextStyle(
-                        color: warnaOren,
+                        color: warnaUngu,
                         fontFamily: "Montserrat",
                         fontSize: 15),
                     contentPadding: EdgeInsets.fromLTRB(20, 22, 0, 22),
                     suffixIcon: Icon(
-                      Icons.key_rounded,
-                      color: warnaOren,
+                      Icons.lock_rounded,
+                      color: warnaUngu,
                       size: 18,
                     ),
                   ),
@@ -187,7 +140,7 @@ class SignUp extends StatelessWidget {
                   Navigator.pushNamed(context, '/continueregister');
                 },
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+                  padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
@@ -208,7 +161,30 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                 ),
-              )
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    const Text("Already have an account?",
+                        style: TextStyle(
+                            color: warnaOren,
+                            fontFamily: "Montserrat",
+                            fontSize: 15)),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pushReplacementNamed(context, '/login');
+                      },
+                      child: const Text("Sign In",
+                          style: TextStyle(
+                              color: warnaUngu,
+                              fontFamily: "Montserrat",
+                              fontSize: 15)),
+                    ),
+                  ],
+                ),
+              ),
             ],
           )
         ]),
