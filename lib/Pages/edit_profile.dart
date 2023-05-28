@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import '../Components/colors.dart';
 
 class EditProfile extends StatelessWidget {
-  EditProfile({super.key});
+  const EditProfile({super.key});
 
   @override
   Widget build(BuildContext context) {
