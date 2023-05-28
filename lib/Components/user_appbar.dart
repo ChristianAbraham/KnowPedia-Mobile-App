@@ -28,12 +28,14 @@ class UserAppbar extends StatelessWidget {
                       fontFamily: "Montserrat",
                       fontWeight: FontWeight.w700)),
             ),
-            Text(user.dispName ?? "UserName", //userinfo.detail[0].firstName,
-                style: const TextStyle(
-                    color: Colors.orange,
-                    fontSize: 32,
-                    fontFamily: "Montserrat",
-                    fontWeight: FontWeight.w700)),
+            Text(
+              user.dispName ?? "UserName", //userinfo.detail[0].firstName,
+              style: const TextStyle(
+                  color: Colors.orange,
+                  fontSize: 32,
+                  fontFamily: "Montserrat",
+                  fontWeight: FontWeight.w700),
+            ),
           ],
         ),
         ElevatedButton(
@@ -49,7 +51,9 @@ class UserAppbar extends StatelessWidget {
           ),
           onPressed: () {
             Navigator.pushReplacement(
-                context, MaterialPageRoute(builder: (context) => Navbar(4)));
+              context,
+              MaterialPageRoute(builder: (context) => Navbar(4)),
+            );
           },
         ),
       ],

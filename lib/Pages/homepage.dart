@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/colors.dart';
-import 'package:provider/provider.dart';
 import '../Components/user_appbar.dart';
-import '../providers/authentication.dart';
 import '../widgets/dailyinsight_builder.dart';
 import '../widgets/mainarticle_builder.dart';
 

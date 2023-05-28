@@ -47,7 +47,7 @@ class _NavbarState extends State<Navbar> {
           selectedIndex: 0,
           tabs: const [
             GButton(icon: Icons.home, text: "Home"),
-            GButton(icon: Icons.favorite, text: "Like"),
+            GButton(icon: Icons.favorite, text: "Favs"),
             GButton(icon: Icons.add_box_rounded, text: "Write"),
             GButton(icon: Icons.explore, text: "Explore"),
             GButton(icon: Icons.person, text: "Profile"),
