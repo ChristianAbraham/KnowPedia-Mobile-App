@@ -3,6 +3,7 @@ import 'package:knowpedia/Pages/settings.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:knowpedia/providers/authentication.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../providers/articles.dart';
 import '../widgets/profilearticle_builder.dart';
 
@@ -68,14 +69,16 @@ class _ProfileState extends State<Profile> {
           padding: const EdgeInsets.only(top: 10),
           child: SingleChildScrollView(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(0, 0, 0, 20),
+                  padding: EdgeInsets.fromLTRB(5.w, 0, 0, 20),
                   child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         CircleAvatar(
-                          radius: 50,
+                          radius: 13.w,
                           backgroundImage: NetworkImage(user.userPhoto ??
                               'https://picsum.photos/100/100'),
                         ),
@@ -95,7 +98,7 @@ class _ProfileState extends State<Profile> {
                               Padding(
                                 padding: const EdgeInsets.only(top: 4),
                                 child: SizedBox(
-                                  width: 230,
+                                  width: 50.w,
                                   child: Text(user.email ?? "No Email",
                                       textAlign: TextAlign.left,
                                       overflow: TextOverflow.clip,

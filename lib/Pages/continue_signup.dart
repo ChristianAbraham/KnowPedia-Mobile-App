@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../providers/authentication.dart';
 
@@ -90,25 +91,12 @@ class _ContinueSignUpState extends State<ContinueSignUp> {
                       ),
                     ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 15),
-                    child: SizedBox(
-                      width: 330,
-                      child: Text(
-                        "Forgot Password?",
-                        textAlign: TextAlign.right,
-                        style: TextStyle(
-                          color: warnaUngu,
-                          fontFamily: "Montserrat",
-                        ),
-                      ),
-                    ),
-                  ),
                   Padding(
                     padding:
                         const EdgeInsets.only(left: 20, right: 20, top: 25),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         InkWell(
                           onTap: () async {
@@ -123,8 +111,8 @@ class _ContinueSignUpState extends State<ContinueSignUp> {
                             //         builder: (context) => Navbar(0)));
                           },
                           child: Container(
-                            height: 60,
-                            width: 350,
+                            height: 8.h,
+                            width: 88.w,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
                               color: warnaOren,
