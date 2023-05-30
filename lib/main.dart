@@ -7,6 +7,8 @@ import 'package:knowpedia/providers/authentication.dart';
 import 'package:knowpedia/providers/favoriteservice.dart';
 import 'package:knowpedia/wrapper.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:sizer/sizer.dart';
 import 'Pages/login.dart';
 
 void main() async {
@@ -21,26 +23,31 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => Authentication()),
-        ChangeNotifierProxyProvider<Authentication, Articles>(
-            create: (context) => Articles(),
-            update: (context, authentication, articles) => articles!
-              ..updateToken(authentication.tempData(), authentication.userid)),
-        ChangeNotifierProvider(create: (context) => Favorites()),
-      ],
-      child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          title: 'Flutter Demo',
-          theme: ThemeData(primarySwatch: Colors.purple),
-          initialRoute: '/',
-          routes: {
-            '/': (context) => const Wrapper(),
-            '/login': (context) => const LoginScreen(),
-            '/register': (context) => SignUp(),
-            '/continueregister': (context) => const ContinueSignUp(),
-          }),
+    return ResponsiveSizer(
+      builder: (context, orientation, deviceType) {
+        return MultiProvider(
+          providers: [
+            ChangeNotifierProvider(create: (context) => Authentication()),
+            ChangeNotifierProxyProvider<Authentication, Articles>(
+                create: (context) => Articles(),
+                update: (context, authentication, articles) => articles!
+                  ..updateToken(
+                      authentication.tempData(), authentication.userid)),
+            ChangeNotifierProvider(create: (context) => Favorites()),
+          ],
+          child: MaterialApp(
+              debugShowCheckedModeBanner: false,
+              title: 'Flutter Demo',
+              theme: ThemeData(primarySwatch: Colors.purple),
+              initialRoute: '/',
+              routes: {
+                '/': (context) => const Wrapper(),
+                '/login': (context) => const LoginScreen(),
+                '/register': (context) => SignUp(),
+                '/continueregister': (context) => const ContinueSignUp(),
+              }),
+        );
+      },
     );
   }
 }
