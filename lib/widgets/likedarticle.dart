@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Components/colors.dart';
 import '../Pages/articlepage.dart';
 import '../providers/favoriteservice.dart';
@@ -58,7 +59,7 @@ class LikedArticle extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                  padding: EdgeInsets.fromLTRB(3.w, 0, 0, 0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,7 +67,7 @@ class LikedArticle extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.only(top: 0, bottom: 1),
                         child: SizedBox(
-                          width: 250,
+                          width: 60.w,
                           child: Text(title,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
@@ -79,7 +80,7 @@ class LikedArticle extends StatelessWidget {
                         ),
                       ),
                       SizedBox(
-                        width: 250,
+                        width: 60.w,
                         child: Text(
                           description,
                           maxLines: 2,

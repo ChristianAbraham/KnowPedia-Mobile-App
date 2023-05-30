@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Components/colors.dart';
 import '../Pages/articlepage.dart';
 import '../models/article.dart';
@@ -34,7 +35,7 @@ class DailyInsight extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(bottom: 20, top: 5),
         child: Container(
-          width: 480,
+          width: 100.w,
           height: 110,
           color: Colors.transparent,
           child: Row(
@@ -50,7 +51,7 @@ class DailyInsight extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                padding: EdgeInsets.fromLTRB(3.w, 0, 0, 0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -58,7 +59,7 @@ class DailyInsight extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(top: 0, bottom: 1),
                       child: SizedBox(
-                        width: 250,
+                        width: 60.w,
                         child: Text(data.title,
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
@@ -71,7 +72,7 @@ class DailyInsight extends StatelessWidget {
                       ),
                     ),
                     SizedBox(
-                      width: 250,
+                      width: 60.w,
                       child: Text(
                         data.description,
                         maxLines: 2,

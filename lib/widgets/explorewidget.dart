@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../Components/colors.dart';
 import '../Pages/articlepage.dart';
 import '../models/article.dart';
@@ -27,7 +28,7 @@ class ExploreArticle extends StatelessWidget {
                     data.content)));
       },
       child: Container(
-        width: 360,
+        width: 100.w,
         height: 225,
         color: Colors.transparent,
         child: Column(
@@ -38,7 +39,7 @@ class ExploreArticle extends StatelessWidget {
               borderRadius: BorderRadius.circular(15),
               child: Image(
                 image: NetworkImage(data.image),
-                width: 360,
+                width: 100.w,
                 height: 130,
                 fit: BoxFit.cover,
               ),
@@ -53,7 +54,7 @@ class ExploreArticle extends StatelessWidget {
                       Padding(
                         padding: const EdgeInsets.fromLTRB(2, 10, 0, 5),
                         child: SizedBox(
-                          width: 360,
+                          width: 90.w,
                           child: Text(data.title,
                               maxLines: 2,
                               overflow: TextOverflow.ellipsis,
