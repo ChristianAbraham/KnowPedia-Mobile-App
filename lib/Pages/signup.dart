@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:provider/provider.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../providers/authentication.dart';
 
 class SignUp extends StatelessWidget {
@@ -34,9 +35,9 @@ class SignUp extends StatelessWidget {
           ),
           Column(
             children: [
-              const Padding(
-                padding: EdgeInsets.fromLTRB(20, 350, 20, 0),
-                child: Text("Create A New Account ",
+              Padding(
+                padding: EdgeInsets.fromLTRB(20, 42.h, 20, 0),
+                child: const Text("Create A New Account ",
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
                         color: warnaUngu,
@@ -146,11 +147,11 @@ class SignUp extends StatelessWidget {
                       borderRadius: BorderRadius.circular(50),
                       color: warnaOren,
                     ),
-                    width: 350,
-                    height: 65,
+                    width: 100.w,
+                    height: 7.h,
                     child: const Center(
                       child: Text(
-                        "Sign Up",
+                        "Continue",
                         style: TextStyle(
                           color: Colors.white,
                           fontFamily: 'Montserrat',
