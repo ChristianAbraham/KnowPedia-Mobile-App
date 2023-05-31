@@ -107,16 +107,20 @@ class Articles with ChangeNotifier {
 
     //print(_userArticle);
     return http
-        .post(url,
-            body: json.encode({
-              'uid': uid,
-              'title': title,
-              'description': description,
-              'image': image,
-              'author': author,
-              'category': category,
-              'content': content,
-            }))
+        .post(
+      url,
+      body: json.encode(
+        {
+          'uid': uid,
+          'title': title,
+          'description': description,
+          'image': image,
+          'author': author,
+          'category': category,
+          'content': content,
+        },
+      ),
+    )
         .then((response) {
       _articleItem.add(Article(
           id: json.decode(response.body)["name"].toString(),
