@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:knowpedia/Components/searchbar.dart';
 import 'package:knowpedia/Components/colors.dart';
 import 'package:knowpedia/widgets/explore_builder.dart';
-import '../widgets/explorewidget.dart';
 
 class Explore extends StatelessWidget {
   const Explore({super.key});
@@ -28,7 +27,7 @@ class Explore extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
         child: Column(
           children: [
-            searchBar(),
+            SearchBar(),
             Flexible(
               child: ListView(
                 scrollDirection: Axis.vertical,
