@@ -7,9 +7,9 @@ import '../providers/articles.dart';
 import '../widgets/dailyInsight.dart';
 
 class ExploreBuilder extends StatefulWidget {
-  const ExploreBuilder({
-    super.key,
-  });
+  const ExploreBuilder({super.key, searchString});
+
+  //String searchString = '';
 
   @override
   State<ExploreBuilder> createState() => _ExploreBuilderState();
