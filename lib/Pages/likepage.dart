@@ -35,7 +35,7 @@ class _FavoriteState extends State<Favorite> {
       body: Padding(
         padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
         child: Column(children: [
-          searchBar(),
+          SearchBar(),
           Flexible(
             child: (dataMain.isEmpty)
                 ? const Center(
